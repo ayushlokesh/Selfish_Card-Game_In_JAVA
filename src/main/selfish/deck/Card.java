@@ -7,6 +7,8 @@ public class Card {
 
     public Card(String name, String desc){}
 
+    public Card(){}
+
     public String getDescription(){return "";}
 
     @ Override
