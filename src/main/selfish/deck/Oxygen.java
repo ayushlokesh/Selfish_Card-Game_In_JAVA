@@ -1,5 +1,5 @@
 package selfish.deck;
 
-public class Oxygen {
+public class Oxygen extends Card{
     
 }

@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.Scanner;
+
 public class GameDriver {
 
     /**
@@ -14,6 +17,38 @@ public class GameDriver {
     }
 
     public static void main(String[] args)  {
+        try {
+            File myObj = new File("C:\\Users\\AYUSH GUPTA\\Desktop\\GitRepos\\comp16412-coursework-2__z86327ag\\io\\art.txt");
+            Scanner myReader = new Scanner(myObj);  
+            while (myReader.hasNextLine()) {
+              String data = myReader.nextLine();
+              System.out.println(data);
+            }
+            myReader.close();
+          } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+           
+          } 
+        Scanner input = new Scanner(System.in);
+        String[] names = {"", "", "", "", ""};
+        int count = 2;
+        System.out.print("Player 1 name? ");
+        names[0] = input.nextLine();
+        System.out.println();
+        System.out.print("Player 2 name? "); 
+        names[1] = input.nextLine();
+        System.out.println();
+        for (int i = 2; i < 5; i++){
+            System.out.print("Add another? [Y]es / [N]o ");
+            System.out.println();
+            if (input.nextLine().toUpperCase().equals("N")){break;}
+            else {System.out.print("Player "+(i+1)+" name? ");
+                    names[i] = input.nextLine();}
+        }System.out.print("After a dazzling (but boomed) space mission, ");
+        for (int i = 0; i < count-2; i++){
+            System.out.print(names[i]+", ");
+        }
+        System.out.print(names[count-2]+" and "+names[count-1]+" are floating in space and their Oxygen supplies are runing low.\nOnly the first back to the ship will survive!");
     }
 
 }

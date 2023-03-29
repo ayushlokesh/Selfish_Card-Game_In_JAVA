@@ -1,5 +1,5 @@
 package selfish.deck;
 
-public class SpaceDeck {
+public class SpaceDeck extends Deck{
     
 }
