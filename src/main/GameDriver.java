@@ -18,7 +18,7 @@ public class GameDriver {
 
     public static void main(String[] args)  {
         try {
-            File myObj = new File("C:\\Users\\AYUSH GUPTA\\Desktop\\GitRepos\\comp16412-coursework-2__z86327ag\\io\\art.txt");
+            File myObj = new File("../../io/art.txt");
             Scanner myReader = new Scanner(myObj);  
             while (myReader.hasNextLine()) {
               String data = myReader.nextLine();
@@ -43,7 +43,7 @@ public class GameDriver {
             System.out.println();
             if (input.nextLine().toUpperCase().equals("N")){break;}
             else {System.out.print("Player "+(i+1)+" name? ");
-                    names[i] = input.nextLine();}
+                   count++; names[i] = input.nextLine();}
         }System.out.print("After a dazzling (but boomed) space mission, ");
         for (int i = 0; i < count-2; i++){
             System.out.print(names[i]+", ");
