@@ -1,6 +1,8 @@
 package selfish;
 import java.util.*;
 
+import selfish.deck.*;
+
 public class Astronaut {
     private String name;
     private GameEngine game;
