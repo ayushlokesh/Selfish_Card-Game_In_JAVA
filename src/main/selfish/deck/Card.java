@@ -3,7 +3,7 @@ package selfish.deck;
 public class Card {
     private String name;
     private String description;
-    private long serialVersionUID;
+    final private long serialVersionUID = 0;
 
     public Card(String name, String desc){}
 
