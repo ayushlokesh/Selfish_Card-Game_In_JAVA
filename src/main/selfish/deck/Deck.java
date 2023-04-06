@@ -3,13 +3,14 @@ package selfish.deck;
 import java.io.*;
 import java.util.*;
 
+
 public class Deck {
     
     private ArrayList<Card> cards = new ArrayList<Card>();
     final private long serialVersionUID = 0;
     protected Deck(){}
 
-    protected Card[] stringToCards(String str){
+    protected static Card[] stringToCards(String str){
       String name = "", desc = "", data = "";            
       int i = 0;
       data = str;
@@ -24,7 +25,7 @@ public class Deck {
       }
       return cards;}
 
-    protected ArrayList<Card> loadCards(String path){
+    protected static ArrayList<Card> loadCards(String path){
         ArrayList<Card> c = new ArrayList<Card>();
         try {
             File myObj = new File(path);
@@ -57,5 +58,7 @@ public class Deck {
     public int size(){return 0;}
     
     public void remove(Card card){}
-    
+    public static void main(String[] arg){
+      System.out.print(loadCards("../../../../io/SpaceCards.txt"));
+    }
 }
