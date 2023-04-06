@@ -290,7 +290,15 @@ public class GameEngineTest {
 		    Astronaut currentPlayer = (Astronaut)currentPlayerField.get(engine);
 		    List<Oxygen> oxygens = (List<Oxygen>)oxygensField.get(currentPlayer);
 			if (i==7 || i==8) killCurrentPlayer(currentPlayer);
-			while ((i%3 == 0 || i>8) && oxygens.size() < 3) oxygens.add(new Oxygen(2));
+
+			int sz = oxygens.size();
+			if (i%3 == 0 || i>8) {
+				while (oxygens.size() < 3) {
+					oxygens.add(new Oxygen(2));
+					assertTrue(sz < oxygens.size());   
+				}
+			}
+
 			if (i<5 || i>8) engine.travel(currentPlayer);
 		    engine.endTurn();
 		}
@@ -312,7 +320,15 @@ public class GameEngineTest {
 		    Astronaut currentPlayer = (Astronaut)currentPlayerField.get(engine);
 		    List<Oxygen> oxygens = (List<Oxygen>)oxygensField.get(currentPlayer);
 			if (i==7 || i==8) killCurrentPlayer(currentPlayer);
-			while ((i%3 == 0 || i>8) && oxygens.size() < 3) oxygens.add(new Oxygen(2));
+
+			int sz = oxygens.size();
+			if (i%3 == 0 || i>8) {
+				while (oxygens.size() < 3) {
+					oxygens.add(new Oxygen(2));
+					assertTrue(sz < oxygens.size());   
+				}
+			}
+
 			if (i<5 || i>8) engine.travel(currentPlayer);
 		    engine.endTurn();
 		}
@@ -1359,7 +1375,7 @@ public class GameEngineTest {
 	}
 
 	@Test
-	public void testStartTurnIsLIFO() throws IllegalAccessException, NoSuchFieldException {
+	public void testStartTurnIsFIFO() throws IllegalAccessException, NoSuchFieldException {
 		addPlayers(3);
 		engine.startGame();
 		Field currentPlayerField = GameEngine.class.getDeclaredField("currentPlayer");
