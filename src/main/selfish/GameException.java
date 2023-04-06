@@ -1,5 +1,6 @@
 package selfish;
 
-public class GameException {
+public class GameException extends Exception{
+    public GameException(){}
     
 }

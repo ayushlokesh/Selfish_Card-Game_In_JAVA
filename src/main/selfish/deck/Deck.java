@@ -58,7 +58,5 @@ public abstract class Deck implements java.io.Serializable{
     public int size(){return 0;}
     
     public void remove(Card card){}
-    public static void main(String[] arg){
-      System.out.print(loadCards("../../../../io/SpaceCards.txt"));
-    }
+    
 }
