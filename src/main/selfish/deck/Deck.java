@@ -5,7 +5,8 @@ import java.util.*;
 
 public class Deck {
     
-    
+    private ArrayList<Card> cards = new ArrayList<Card>();
+    final private long serialVersionUID = 0;
     protected Deck(){}
 
     protected Card[] stringToCards(String str){
@@ -49,7 +50,9 @@ public class Deck {
 
     public Card draw(){return null;}
     
-    public void shuffle(Random random){}
+    public void shuffle(Random random){
+      Collections.shuffle(this.cards, random);
+    }
     
     public int size(){return 0;}
     
