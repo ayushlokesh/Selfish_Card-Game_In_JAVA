@@ -8,26 +8,31 @@ public class Deck {
     
     protected Deck(){}
 
-    protected Card[] stringToCards(){return null;}
+    protected Card[] stringToCards(String str){
+      String name = "", desc = "", data = "";            
+      int i = 0;
+      data = str;
+      name = data.substring(0,data.indexOf(";"));
+      data.replaceFirst((name + ";"), "");
+      desc = data.substring(0, data.indexOf(";"));
+      data.replaceFirst((desc + ";"), "");
+      i = Integer.parseInt(String.valueOf(data.charAt(1)));
+      Card[] cards = new Card[i];
+      for (int j = 0; j < i; j++){
+      cards[i] = new Card(name, desc);
+      return cards;}
 
     protected ArrayList<Card> loadCards(String path){
         ArrayList<Card> c = new ArrayList<Card>();
         try {
             File myObj = new File(path);
             Scanner myReader = new Scanner(myObj);
-            String name = "", desc = "", data = ""; 
-            
-            int i = 0;
             while (myReader.hasNextLine()) {
-                data = myReader.nextLine();
-              name = data.substring(0,data.indexOf(";"));
-              data.replaceFirst((name + ";"), "");
-              desc = data.substring(0, data.indexOf(";"));
-              data.replaceFirst((desc + ";"), "");
-              i = Integer.parseInt(String.valueOf(data.charAt(1)));
-              for (int j = 0; j < i; j++){
-              c.add(new Card(name, desc));  
-            }}
+              for (Card card : stringToCards(myReader.nextLine())){
+                c.add(card)
+              }
+              
+            }
             myReader.close();
           } catch (FileNotFoundException e) {
             System.out.println("File not found.");

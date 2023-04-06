@@ -27,7 +27,8 @@ private GameEngine(){}
 public GameEngine(long seed, String gameDeck, String spaceDeck){
     this.gameDeck = new GameDeck(gameDeck);
     this.spaceDeck = new SpaceDeck(spaceDeck);
-    
+    spaceDiscard = new SpaceDeck();
+    gameDiscard = new GameDeck();
 }
 public int addPlayer(String player){return 0;}
 public int endTurn(){return 0;}
