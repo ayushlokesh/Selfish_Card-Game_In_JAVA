@@ -19,7 +19,8 @@ public class Deck {
       i = Integer.parseInt(String.valueOf(data.charAt(1)));
       Card[] cards = new Card[i];
       for (int j = 0; j < i; j++){
-      cards[i] = new Card(name, desc);
+      cards[j] = new Card(name, desc);
+      }
       return cards;}
 
     protected ArrayList<Card> loadCards(String path){
