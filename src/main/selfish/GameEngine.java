@@ -34,7 +34,7 @@ public int addPlayer(String player){return 0;}
 public int endTurn(){return 0;}
 public boolean gameOver(){return false;}
 public List<Astronaut> getAllPlayers(){return null;}
-public Astronaut getCurrentPlayers(){return null;}
+public Astronaut getCurrentPlayer(){return null;}
 public int getFullPlayerCount(){return 0;}
 public GameDeck getGameDeck(){return null;}
 public GameDeck getGameDiscard(){return null;}
@@ -43,7 +43,7 @@ public SpaceDeck getSpaceDiscard(){return null;}
 public Astronaut getWinner(){return null;}
 public void killPlayer(Astronaut corpse){}
 public static GameEngine loadState(String path){return null;}
-public void mergeDeck(Deck deck1, Deck deck2){}
+public void mergeDecks(Deck deck1, Deck deck2){}
 public void saveState(String path){}
 public Oxygen[] splitOxygen(Oxygen dbl){return null;}
 public void startGame(){}

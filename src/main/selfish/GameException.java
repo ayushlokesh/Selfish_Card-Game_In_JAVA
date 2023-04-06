@@ -1,6 +1,6 @@
 package selfish;
 
 public class GameException extends Exception{
-    public GameException(){}
+    public GameException(String msg, Throwable e){}
     
 }

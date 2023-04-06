@@ -27,7 +27,7 @@ public class Astronaut implements java.io.Serializable {
     public void hack(Card card){}
     public Card hack(String card) {return null;}
     public int hasCard(String card){return 0;}
-    public boolean hasMeltedEyeBalls(){return false;}
+    public boolean hasMeltedEyeballs(){return false;}
     public boolean hasWon(){return false;}
     public boolean isAlive(){return false;}
     public Card laserBlast(){return null;}
