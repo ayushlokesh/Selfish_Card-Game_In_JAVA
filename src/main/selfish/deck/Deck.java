@@ -28,8 +28,9 @@ public class Deck {
             File myObj = new File(path);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
-              for (Card card : stringToCards(myReader.nextLine())){
-                c.add(card)
+              Card[] cards = stringToCards(myReader.nextLine());
+              for (Card card : cards){
+                c.add(card);
               }
               
             }
