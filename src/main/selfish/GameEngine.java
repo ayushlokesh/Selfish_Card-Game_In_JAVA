@@ -24,7 +24,11 @@ private SpaceDeck spaceDiscard;
 final private static long serialVersionUID = 0;
 
 private GameEngine(){}
-public GameEngine(long seed, String gameDeck, String spaceDeck){}
+public GameEngine(long seed, String gameDeck, String spaceDeck){
+    this.gameDeck = new GameDeck(gameDeck);
+    this.spaceDeck = new SpaceDeck(spaceDeck);
+    
+}
 public int addPlayer(String player){return 0;}
 public int endTurn(){return 0;}
 public boolean gameOver(){return false;}

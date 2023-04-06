@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.Scanner;
 
+import selfish.GameEngine;
 import selfish.deck.GameDeck;
 import selfish.deck.SpaceDeck;
 
@@ -54,9 +55,7 @@ public class GameDriver {
         System.out.print(names[count-2]+" and "+names[count-1]+" are floating in space and their Oxygen supplies are runing low.\nOnly the first back to the ship will survive!");
     
     
-        GameDeck gameDeck = new GameDeck();
-        SpaceDeck spaceDeck = new SpaceDeck();
-    
+        GameEngine gameEngine = new GameEngine(count, "../../../../io/ActionCards.txt", "../../../../io/SpaceCards.txt");
     
     
     }
