@@ -36,7 +36,5 @@ public class Astronaut {
     public Oxygen siphon(){return null;}
     public Card steal(){return null;}
     public void swapTrack(Astronaut swapee){}
-    
-
 }
  

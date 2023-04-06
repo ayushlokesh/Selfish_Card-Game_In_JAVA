@@ -1,6 +1,6 @@
 package selfish.deck;
 
-
+import java.util.ArrayList;
 
 public class GameDeck extends Deck{
 
@@ -20,7 +20,9 @@ public class GameDeck extends Deck{
 
     public GameDeck(){}
 
-    public GameDeck(String s){}
+    public GameDeck(String s){
+        ArrayList<Card> cards = loadCards("../../../../io/ActionCards.txt");
+    }
 
     public Oxygen drawOxygen(int i){return null;}
 

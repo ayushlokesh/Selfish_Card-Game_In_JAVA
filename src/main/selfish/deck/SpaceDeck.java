@@ -1,5 +1,7 @@
 package selfish.deck;
 
+import java.util.ArrayList;
+
 public class SpaceDeck extends Deck{
     final public static String ASTEROID_FIELD = "Asteroid field";
     final public static String BLANK_SPACE = "Blank space";
@@ -15,6 +17,8 @@ public class SpaceDeck extends Deck{
 
     public SpaceDeck(){}
     
-    public SpaceDeck(String s){}
+    public SpaceDeck(String s){
+        ArrayList<Card> cards = loadCards("../../../../io/SpaceCards.txt");
+    }
     
 }
