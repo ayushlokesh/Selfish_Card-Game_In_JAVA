@@ -1,6 +1,6 @@
 package selfish.deck;
 
-public class Card {
+public class Card implements java.io.Serializable, Comparable<Card> {
     private String name;
     private String description;
     final private long serialVersionUID = 0;
@@ -11,8 +11,12 @@ public class Card {
 
     public String getDescription(){return "";}
 
-    @ Override
-    public String toString(){return "";}
+    
+
+    @Override
+    public int compareTo(Card o) {
+        return this.name.compareTo(o.name);
+    }
 
 
     

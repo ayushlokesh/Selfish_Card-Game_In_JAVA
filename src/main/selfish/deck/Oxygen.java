@@ -6,8 +6,8 @@ public class Oxygen extends Card{
 
     final private long serialVersionUID = 0;
 
-    public void Oxygen(int i){
-
+    public Oxygen(int i){
+        this.value = i;
     }
 
     public int getValue(){return 0;}

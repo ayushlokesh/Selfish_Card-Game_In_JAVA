@@ -3,7 +3,7 @@ import java.util.*;
 
 import selfish.deck.*;
 
-public class Astronaut {
+public class Astronaut implements java.io.Serializable {
     private String name;
     private GameEngine game;
     
