@@ -4,9 +4,9 @@ import java.io.*;
 import java.util.*;
 
 
-public class Deck {
+public abstract class Deck implements java.io.Serializable{
     
-    private ArrayList<Card> cards = new ArrayList<Card>();
+    private  Collection<Card> cards;
     final private long serialVersionUID = 0;
     protected Deck(){}
 
@@ -52,7 +52,7 @@ public class Deck {
     public Card draw(){return null;}
     
     public void shuffle(Random random){
-      Collections.shuffle(this.cards, random);
+      Collections.shuffle((List<?>)this.cards, random);
     }
     
     public int size(){return 0;}
