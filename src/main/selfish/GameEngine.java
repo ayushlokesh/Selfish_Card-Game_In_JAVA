@@ -1,5 +1,6 @@
 package selfish;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Random;
@@ -12,8 +13,8 @@ import selfish.deck.SpaceDeck;
 
 public class GameEngine {
 
-private Collection<Astronaut> activePlayers;
-private List<Astronaut> corpses;
+private Collection<Astronaut> activePlayers = new ArrayList<Astronaut>(); 
+private List<Astronaut> corpses = new ArrayList<Astronaut>();
 private Astronaut currentPlayer;
 private boolean hasStarted = false;
 private Random random;
@@ -29,11 +30,21 @@ public GameEngine(long seed, String gameDeck, String spaceDeck){
     this.spaceDeck = new SpaceDeck(spaceDeck);
     spaceDiscard = new SpaceDeck();
     gameDiscard = new GameDeck();
+    this.gameDeck.shuffle(random);
+    this.spaceDeck.shuffle(random);
 }
-public int addPlayer(String player){return 0;}
+public int addPlayer(String player){
+    activePlayers.add(new Astronaut(player, this));
+    return getFullPlayerCount();}
 public int endTurn(){return 0;}
 public boolean gameOver(){return false;}
-public List<Astronaut> getAllPlayers(){return null;}
+public List<Astronaut> getAllPlayers(){
+    List<Astronaut> p = new ArrayList<Astronaut>();
+    for (Astronaut a : activePlayers){p.add(a);}
+    if(corpses.size() != 0){
+        for(Astronaut a : corpses){p.add(a);}
+    }
+    return p;}
 public Astronaut getCurrentPlayer(){return null;}
 public int getFullPlayerCount(){return 0;}
 public GameDeck getGameDeck(){return null;}

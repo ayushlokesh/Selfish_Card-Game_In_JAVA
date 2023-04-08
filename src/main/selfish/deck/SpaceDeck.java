@@ -1,6 +1,9 @@
 package selfish.deck;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
+import java.util.List;
 
 public class SpaceDeck extends Deck{
     final public static String ASTEROID_FIELD = "Asteroid field";
@@ -18,7 +21,7 @@ public class SpaceDeck extends Deck{
     public SpaceDeck(){}
     
     public SpaceDeck(String s){
-        ArrayList<Card> cards = loadCards("../../../../io/SpaceCards.txt");
+        add(loadCards(s));
     }
-    
+   
 }

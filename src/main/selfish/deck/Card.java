@@ -5,7 +5,10 @@ public class Card implements java.io.Serializable, Comparable<Card> {
     private String description;
     final private long serialVersionUID = 0;
 
-    public Card(String name, String desc){}
+    public Card(String name, String desc){
+        this.name = name;
+        this.description = description;
+    }
 
     public Card(){}
 

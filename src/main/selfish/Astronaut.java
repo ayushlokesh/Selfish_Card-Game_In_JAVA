@@ -13,7 +13,10 @@ public class Astronaut implements java.io.Serializable {
     @ Override
     public String toString(){return "";}
     
-    public Astronaut(String name, GameEngine game){}
+    public Astronaut(String name, GameEngine game){
+        this.name = name;
+        this.game = game;
+    }
 
     public void addToHand(Card card){}
     public void addToTrack(Card card){}

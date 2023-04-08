@@ -56,7 +56,7 @@ public class GameDriver {
     
     
         GameEngine gameEngine = new GameEngine(count, "../../../../io/ActionCards.txt", "../../../../io/SpaceCards.txt");
-    
+         gameEngine.addPlayer(null);
     
     }
 
