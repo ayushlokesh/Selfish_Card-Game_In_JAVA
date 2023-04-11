@@ -56,7 +56,7 @@ public abstract class Deck implements java.io.Serializable{
     
     protected int add(List<Card> cards){
       if (cards == null){return 0;}
-      this.cards = cards;
+      this.cards.addAll(cards);
       return cards.size();
     }
 
