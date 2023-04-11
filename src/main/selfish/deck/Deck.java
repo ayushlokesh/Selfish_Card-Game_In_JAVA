@@ -70,7 +70,7 @@ public abstract class Deck implements java.io.Serializable{
       Collections.shuffle((List<Card>)this.cards, random);
     }
     
-    public int size(){return 0;}
+    public int size(){return cards.size();}
     
     public void remove(Card card){
       for (Card c : cards){
@@ -81,7 +81,5 @@ public abstract class Deck implements java.io.Serializable{
 
     
 public static void main(String[] args){
-  List<Card> cards1 = loadCards("io/SpaceCards.txt");
-  System.out.print(cards1.size());
-}
+  }
 }

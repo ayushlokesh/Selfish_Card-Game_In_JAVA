@@ -25,5 +25,5 @@ public class SpaceDeck extends Deck{
     public SpaceDeck(String s){
         add(loadCards(s));
     }
-   
+  
 }
