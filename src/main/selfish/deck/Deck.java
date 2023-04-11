@@ -6,8 +6,8 @@ import java.util.*;
 
 public abstract class Deck implements java.io.Serializable{
     
-    private Collection<Card> cards;
-    final private long serialVersionUID = 0;
+    private Collection<Card> cards = new ArrayList<Card>();
+    final private static long serialVersionUID = 0;
     protected Deck(){}
 
     protected static Card[] stringToCards(String str){
@@ -15,9 +15,9 @@ public abstract class Deck implements java.io.Serializable{
       int i = 0;
       data = str;
       name = data.substring(0,data.indexOf(";"));
-      data.replaceFirst((name + "; "), "");
+      data = data.replaceFirst((name + "; "), "");
       desc = data.substring(0, data.indexOf(";"));
-      data.replaceFirst((desc + ";"), "");
+      data = data.replaceFirst((desc + ";"), "");
       i = Integer.parseInt(String.valueOf(data.charAt(1)));
       Card[] cards = new Card[i];
       for (int j = 0; j < i; j++){
@@ -30,11 +30,12 @@ public abstract class Deck implements java.io.Serializable{
         try {
             File myObj = new File(path);
             Scanner myReader = new Scanner(myObj);
-            
+            String line;
             while (myReader.hasNextLine()) {
-              if(myReader.nextLine().equals("NAME; DESCRIPTION; QUANTITY"))
+              line = myReader.nextLine();
+              if(line.equals("NAME; DESCRIPTION; QUANTITY"))
               {continue;}
-              Card[] cards = stringToCards(myReader.nextLine());
+              Card[] cards = stringToCards(line);
               for (Card card : cards){
                 c.add(card);
               }
@@ -69,5 +70,8 @@ public abstract class Deck implements java.io.Serializable{
     public void remove(Card card){}
 
     
-
+public static void main(String[] args){
+  List<Card> cards1 = loadCards("io/SpaceCards.txt");
+  System.out.print(cards1.size());
+}
 }

@@ -6,9 +6,10 @@ import selfish.deck.*;
 public class Astronaut implements java.io.Serializable {
     private String name;
     private GameEngine game;
-    
-    private ArrayList<Oxygen> oxygens = new ArrayList<Oxygen>();
-    private ArrayList<Card> actions = new ArrayList<Card>();
+    final private static long serialVersionUID = 0;
+    private Collection<Card> track;
+    private List<Oxygen> oxygens = new ArrayList<Oxygen>();
+    private List<Card> actions = new ArrayList<Card>();
 
     @ Override
     public String toString(){return "";}

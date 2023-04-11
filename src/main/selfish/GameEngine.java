@@ -11,10 +11,10 @@ import selfish.deck.GameDeck;
 import selfish.deck.Oxygen;
 import selfish.deck.SpaceDeck;
 
-public class GameEngine {
+public class GameEngine implements java.io.Serializable{
 
-private Collection<Astronaut> activePlayers = new ArrayList<Astronaut>(); 
-private List<Astronaut> corpses = new ArrayList<Astronaut>();
+private Collection<Astronaut> activePlayers; 
+private List<Astronaut> corpses;
 private Astronaut currentPlayer;
 private boolean hasStarted = false;
 private Random random;
@@ -32,6 +32,8 @@ public GameEngine(long seed, String gameDeck, String spaceDeck){
     gameDiscard = new GameDeck();
     this.gameDeck.shuffle(random);
     this.spaceDeck.shuffle(random);
+    this.activePlayers = new ArrayList<Astronaut>();
+    this.corpses = new ArrayList<Astronaut>();
 }
 public int addPlayer(String player){
     activePlayers.add(new Astronaut(player, this));
@@ -45,8 +47,8 @@ public List<Astronaut> getAllPlayers(){
         for(Astronaut a : corpses){p.add(a);}
     }
     return p;}
-public Astronaut getCurrentPlayer(){return null;}
-public int getFullPlayerCount(){return 0;}
+public Astronaut getCurrentPlayer(){return currentPlayer;}
+public int getFullPlayerCount(){return getAllPlayers().size();}
 public GameDeck getGameDeck(){return null;}
 public GameDeck getGameDiscard(){return null;}
 public SpaceDeck getSpaceDeck(){return null;}
