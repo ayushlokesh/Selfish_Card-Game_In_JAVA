@@ -18,7 +18,9 @@ public class SpaceDeck extends Deck{
     final public static String WORMHOLE = "Wormhole";
     final private static long serialVersionUID = 0;
 
-    public SpaceDeck(){}
+    public SpaceDeck(){
+        add(loadCards(""));
+    }
     
     public SpaceDeck(String s){
         add(loadCards(s));

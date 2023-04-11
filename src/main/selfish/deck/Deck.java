@@ -62,7 +62,7 @@ public abstract class Deck implements java.io.Serializable{
 
     public Card draw(){
       Card card1 = ((List<Card>)cards).get(cards.size()-1);
-      cards.remove(cards.size()-1);
+      cards.remove(card1);
       return card1;}
     
     public void shuffle(Random random){
@@ -71,7 +71,12 @@ public abstract class Deck implements java.io.Serializable{
     
     public int size(){return 0;}
     
-    public void remove(Card card){}
+    public void remove(Card card){
+      for (Card c : cards){
+        if (c == card){cards.remove(card); break;}
+      }
+      
+    }
 
     
 public static void main(String[] args){
