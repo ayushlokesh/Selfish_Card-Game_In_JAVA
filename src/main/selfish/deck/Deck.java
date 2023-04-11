@@ -28,7 +28,7 @@ public abstract class Deck implements java.io.Serializable{
     protected static List<Card> loadCards(String path){
         
         List<Card> c = new ArrayList<Card>();
-        if (path.equals("")){return null;}
+        if (path.equals("")){return c;}
         try {
             File myObj = new File(path);
             Scanner myReader = new Scanner(myObj);
