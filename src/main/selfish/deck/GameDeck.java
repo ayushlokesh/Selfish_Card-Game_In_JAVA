@@ -19,7 +19,9 @@ public class GameDeck extends Deck{
     final private static long serialVersionUID = 0;
 
 
-    public GameDeck(){}
+    public GameDeck(){
+        add(loadCards(""));
+    }
 
     public GameDeck(String s){
         add(loadCards(s));

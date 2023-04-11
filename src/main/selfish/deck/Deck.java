@@ -26,6 +26,7 @@ public abstract class Deck implements java.io.Serializable{
       return cards;}
 
     protected static List<Card> loadCards(String path){
+        if (path.equals("")){return null;}
         List<Card> c = new ArrayList<Card>();
         try {
             File myObj = new File(path);
@@ -54,12 +55,15 @@ public abstract class Deck implements java.io.Serializable{
       return cards.size();}
     
     protected int add(List<Card> cards){
+      if (cards == null){return 0;}
       this.cards = cards;
-      return cards.size();}
+      return cards.size();
+    }
 
     public Card draw(){
+      Card card1 = ((List<Card>)cards).get(cards.size()-1);
       cards.remove(cards.size()-1);
-      return null;}
+      return card1;}
     
     public void shuffle(Random random){
       Collections.shuffle((List<Card>)this.cards, random);
