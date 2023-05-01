@@ -25,8 +25,8 @@ public class GameDeck extends Deck{
 
     public GameDeck(String s){
         add(loadCards(s));
-        for (int i = 0; i<10; i++){this.add(new Oxygen(2))}
-        for (int i = 0; i<38; i++){this.add(new Oxygen(1))}
+        for (int i = 0; i<10; i++){this.add(new Oxygen(2));}
+        for (int i = 0; i<38; i++){this.add(new Oxygen(1));}
     }
 
     public Oxygen drawOxygen(int i){return null;}
