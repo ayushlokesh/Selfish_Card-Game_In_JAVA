@@ -38,7 +38,8 @@ public class GameDeck extends Deck{
         c = new Oxygen(1);
         this.remove(c); this.remove(c);
         this.add(new Oxygen(2));
-        Oxygen[] o = {new Oxygen(1), new Oxygen(1)};
+        Oxygen[] o;
+        o = new Oxygen[] {new Oxygen(1), new Oxygen(1)};
         return o;}
     
 }
