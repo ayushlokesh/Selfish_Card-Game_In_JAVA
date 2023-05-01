@@ -1,5 +1,5 @@
 package selfish.deck;
-import test.functional.GameDeckTest;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +41,5 @@ public class GameDeck extends Deck{
         Oxygen[] x;
         x = new Oxygen[] {new Oxygen(1),new Oxygen(1)};
         return x;}
- 
+    
 }
