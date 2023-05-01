@@ -13,7 +13,7 @@ public class Oxygen extends Card{
     public int getValue(){return value;}
 
     @ Override
-    public String toString(){return "Oxygen(" + value + ")"; }
+    public String toString(){return "Oxygen(" + this.value + ")"; }
 
     // @ Override
     // public int compareTo(Card o) {
