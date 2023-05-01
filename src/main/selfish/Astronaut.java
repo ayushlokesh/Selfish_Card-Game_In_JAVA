@@ -24,9 +24,13 @@ public class Astronaut implements java.io.Serializable {
         track = new ArrayList<Card>();
     }
 
-    public void addToHand(Card card){ if (card IsInstanceOf Oxygen){oxygens.add(card);}
-                                      else {actions.add(card);}}
-    public void addToTrack(Card card){}
+    public void addToHand(Card card){
+        //  if (card IsInstanceOf Oxygen){oxygens.add(card);}
+        //                               else {actions.add(card);}
+                                    }
+    public void addToTrack(Card card){
+        // track.add(card);
+    }
     public int breathe(){return 0;}
     public int distanceFromShip(){return 0;}
     public List<Card> getActions(){return null;}
