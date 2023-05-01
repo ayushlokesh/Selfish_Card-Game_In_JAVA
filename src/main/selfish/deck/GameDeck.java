@@ -29,7 +29,10 @@ public class GameDeck extends Deck{
         for (int i = 0; i<38; i++){this.add(new Oxygen(1));}
     }
 
-    public Oxygen drawOxygen(int i){return null;}
+    public Oxygen drawOxygen(int i){
+        c = new Oxygen(i);
+        this.remove(c);
+        return c;}
 
     public Oxygen[] splitOxygen(Oxygen o){return null;}
     
