@@ -8,8 +8,8 @@ public class Astronaut implements java.io.Serializable {
     private GameEngine game;
     final private static long serialVersionUID = 0;
     private Collection<Card> track;
-    private List<Oxygen> oxygens = new ArrayList<Oxygen>();
-    private List<Card> actions = new ArrayList<Card>();
+    private List<Oxygen> oxygens;
+    private List<Card> actions;
 
     @ Override
     public String toString(){return "";}
@@ -17,6 +17,9 @@ public class Astronaut implements java.io.Serializable {
     public Astronaut(String name, GameEngine game){
         this.name = name;
         this.game = game;
+        oxygens = new ArrayList<Oxygen>();
+        actions = new ArrayList<Card>();
+        track = new ArrayList<Card>();
     }
 
     public void addToHand(Card card){}
