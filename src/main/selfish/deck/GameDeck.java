@@ -34,6 +34,12 @@ public class GameDeck extends Deck{
         this.remove(c);
         return c;}
 
-    public Oxygen[] splitOxygen(Oxygen o){return null;}
+    public Oxygen[] splitOxygen(Oxygen o){
+        Oxygen c =new Oxygen(1);
+        this.remove(c);
+        this.remove(c);
+        Oxygen[] x;
+        x = new Oxygen[] {new Oxygen(1),new Oxygen(1)};
+        return x;}
     
 }
