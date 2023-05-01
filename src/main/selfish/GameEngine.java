@@ -49,10 +49,10 @@ public List<Astronaut> getAllPlayers(){
     return p;}
 public Astronaut getCurrentPlayer(){return currentPlayer;}
 public int getFullPlayerCount(){return getAllPlayers().size();}
-public GameDeck getGameDeck(){return null;}
-public GameDeck getGameDiscard(){return null;}
-public SpaceDeck getSpaceDeck(){return null;}
-public SpaceDeck getSpaceDiscard(){return null;}
+public GameDeck getGameDeck(){return gameDeck;}
+public GameDeck getGameDiscard(){return gameDiscard;}
+public SpaceDeck getSpaceDeck(){return spaceDeck;}
+public SpaceDeck getSpaceDiscard(){return spaceDiscard;}
 public Astronaut getWinner(){return null;}
 public void killPlayer(Astronaut corpse){}
 public static GameEngine loadState(String path){return null;}
