@@ -80,6 +80,5 @@ public abstract class Deck implements java.io.Serializable{
     }
 
     
-public static void main(String[] args){
-  }
+
 }
