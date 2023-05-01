@@ -30,7 +30,7 @@ public class GameDeck extends Deck{
     }
 
     public Oxygen drawOxygen(int i){
-        c = new Oxygen(i)
+        c = new Oxygen(i);
         this.remove(c);
         return c;}
 
