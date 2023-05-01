@@ -1,6 +1,8 @@
 package selfish;
 import java.util.*;
 
+import org.hamcrest.core.IsInstanceOf;
+
 import selfish.deck.*;
 
 public class Astronaut implements java.io.Serializable {
@@ -22,7 +24,8 @@ public class Astronaut implements java.io.Serializable {
         track = new ArrayList<Card>();
     }
 
-    public void addToHand(Card card){}
+    public void addToHand(Card card){ if (card IsInstanceOf Oxygen){oxygens.add(card);}
+                                      else {actions.add(card);}}
     public void addToTrack(Card card){}
     public int breathe(){return 0;}
     public int distanceFromShip(){return 0;}
