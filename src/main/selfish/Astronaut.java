@@ -22,24 +22,47 @@ public class Astronaut implements java.io.Serializable {
         track = new ArrayList<Card>();
     }
 
-    public void addToHand(Card card){}
-    public void addToTrack(Card card){}
-    public int breathe(){return 0;}
-    public int distanceFromShip(){return 0;}
-    public List<Card> getActions(){return null;}
-    public String getActionsStr(boolean enumerated, boolean excludeShields){return null;}
-    public List<Card> getHand(){return null;}
+    public void addToHand(Card card){if (card instanceof Oxygen){oxygens.add((Oxygen)card);}
+                                     else {actions.add(card); Collections.sort(actions);}}
+    public void addToTrack(Card card){track.add(card);}
+    public int breathe(){for (int i = 0; i < oxygens.size(); i++){
+                        if (oxygens.get(i).getValue() == 1){oxygens.remove(i);  return oxygenRemaining();}}
+                        oxygens.remove(oxygens.size()); oxygens.add(new Oxygen(1));
+                        return oxygenRemaining();}
+    public int distanceFromShip(){return (6 - track.size());}
+    public List<Card> getActions(){List<Card> c = new ArrayList<Card>(actions);return c;}
+    public String getActionsStr(boolean enumerated, boolean excludeShields){String s = "";
+                                                                            
+    
+    return null;}
+    public List<Card> getHand(){List<Card> c = new ArrayList<Card>();
+                                c.addAll(actions); c.addAll(oxygens);
+                                return c;}
     public String getHandStr(){return null;}
-    public Collection<Card> getTrack(){return null;}
-    public void hack(Card card){}
-    public Card hack(String card) {return null;}
-    public int hasCard(String card){return 0;}
-    public boolean hasMeltedEyeballs(){return false;}
-    public boolean hasWon(){return false;}
-    public boolean isAlive(){return false;}
-    public Card laserBlast(){return null;}
-    public int oxygenRemaining(){return 0;}
-    public Card peekAtTrack(){return null;}
+    public Collection<Card> getTrack(){Collection<Card> c = new ArrayList<Card>(track); return c;}
+    public void hack(Card card){if (card instanceof Oxygen){
+                                for (int i = 0; i < oxygens.size(); i++){
+                                    if (oxygens.get(i).getValue() == ((Oxygen)card).getValue()){oxygens.remove(i); break;}}}
+                                else {for (int i = 0; i < actions.size(); i++){
+                                    if (actions.get(i).equals(card)){actions.remove(i); break;}}}}
+    public Card hack(String card) {Card c = new Card(); if (card == "Oxygen(1)" || card == "Oxygen(2)"){
+                                for (int i = 0; i < oxygens.size(); i++){
+                                    if (oxygens.get(i).toString() == card){c = oxygens.remove(i); break;}}}
+                                else {for (int i = 0; i < actions.size(); i++){
+                                    if (actions.get(i).toString() == card){c = actions.remove(i); break;}}}
+                                    return c;}
+    public int hasCard(String card){int num = 0; List<Card> c = getHand();
+                                    for (Card o : c){if (card.equals(o.toString())){num++;}}      
+                                    return num;}
+    public boolean hasMeltedEyeballs(){return (actions.get(actions.size()-1).toString() == "Solar flare");}
+    public boolean hasWon(){return (distanceFromShip() == 0 && isAlive());}
+    public boolean isAlive(){if (oxygens.size() == 0){return false;} return true;}
+    public Card laserBlast(){List<Card> c = new ArrayList<Card>(track); Card o = c.remove(c.size()-1); 
+                            track.clear(); track.addAll(c); return o;}
+    public int oxygenRemaining(){int num = 0; for (Oxygen o : oxygens){num += o.getValue();} return num;}
+    public Card peekAtTrack(){if(track.size() > 0){
+                            List<Card> c = new ArrayList<Card>(track); return c.remove(c.size()-1);}
+                            return null;}
     public Oxygen siphon(){return null;}
     public Card steal(){return null;}
     public void swapTrack(Astronaut swapee){}
