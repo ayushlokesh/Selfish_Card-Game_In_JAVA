@@ -26,9 +26,8 @@ public class Astronaut implements java.io.Serializable {
                                      else {actions.add(card); }}
     public void addToTrack(Card card){track.add(card);}
     public int breathe(){for (int i = 0; i < oxygens.size(); i++){
-                        if (oxygens.get(i).getValue() == 1){oxygens.remove(i);if(oxygenRemaining() == 0){game.killPlayer(this);}  return oxygenRemaining();}}
-                        oxygens.remove(oxygens.size()-1); oxygens.add(new Oxygen(1));
-                        
+                        if (oxygens.get(i).getValue() == 1){game.getGameDiscard().add(oxygens.remove(i));if(oxygenRemaining() == 0){game.killPlayer(this);}  return oxygenRemaining();}}
+                        game.getGameDiscard().add(oxygens.remove(oxygens.size()-1)); oxygens.add(new Oxygen(1));
                         return oxygenRemaining();}
     public int distanceFromShip(){return (6 - track.size());}
     public List<Card> getActions(){List<Card> c = new ArrayList<Card>(actions); Collections.sort(c);return c;}
