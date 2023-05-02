@@ -49,7 +49,7 @@ public List<Astronaut> getAllPlayers(){
     for (Astronaut a : activePlayers){p.add(a);}
     if(corpses.size() != 0){
         for(Astronaut a : corpses){p.add(a);}
-    }
+    } if (currentPlayer.isAlive()){Astronaut a = currentPlayer; p.add(a);}
     return p;}
 public Astronaut getCurrentPlayer(){return currentPlayer;}
 public int getFullPlayerCount(){return getAllPlayers().size();}
