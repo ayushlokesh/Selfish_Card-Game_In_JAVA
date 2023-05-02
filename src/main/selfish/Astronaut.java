@@ -71,6 +71,6 @@ public class Astronaut implements java.io.Serializable {
         Random r = new Random(); int i = r.nextInt(c.size()); Card o = c.get(i);
     if (o instanceof Oxygen){for (int j = 0; j < oxygens.size(); j++){if(o.equals(oxygens.get(j)))oxygens.remove(j);}}
     else {for (int j = 0; j < actions.size(); j++){if(o.equals(actions.get(j)))actions.remove(j);}} return o;}
-    public void swapTrack(Astronaut swapee){}
+    public void swapTrack(Astronaut swapee){List<Card> c = new ArrayList<>(this.track); this.track = swapee.track; swapee.track = c;}
 }
  
