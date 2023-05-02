@@ -30,12 +30,12 @@ public class GameDeck extends Deck{
     }
 
     public Oxygen drawOxygen(int i){
-        Oxygen c = new Oxygen(i);
+        Oxygen c = null;
         List<Card> a = new ArrayList<Card>();
 
         for (int j = 0; j < a.size(); j++){a.add(this.draw());
              if (a.get(a.size()-1) instanceof Oxygen && ((Oxygen)a.get(a.size()-1)).getValue() == i)
-             {c = (Oxygen)a.remove(a.size()-1); break;}}
+             {c = (Oxygen)a.get(a.size()-1); a.remove(j); break;}}
         for (int j = a.size()-1; j >= 0; j--){this.add(a.remove(j));}
         return c;}
 
