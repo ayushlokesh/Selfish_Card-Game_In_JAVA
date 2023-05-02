@@ -14,11 +14,12 @@ public abstract class Deck implements java.io.Serializable{
       String name = "", desc = "", data = "";            
       int i = 0;
       data = str;
+      i = Integer.parseInt(String.valueOf(data.charAt(data.length()-1)));
       name = data.substring(0,data.indexOf(";"));
       data = data.replaceFirst((name + "; "), "");
       desc = data.substring(0, data.indexOf(";"));
       data = data.replaceFirst((desc + ";"), "");
-      i = Integer.parseInt(String.valueOf(data.charAt(1)));
+      // i = Integer.parseInt(String.valueOf(data.charAt(1)));
       Card[] cards = new Card[i];
       for (int j = 0; j < i; j++){
       cards[j] = new Card(name, desc);
