@@ -34,7 +34,7 @@ public class Astronaut implements java.io.Serializable {
     public String getActionsStr(boolean enumerated, boolean excludeShields){
     String s = "";List<Card> c = getActions(); c.add(new Card("jsdbc", "dgcv"));
     String a = "ABCDEFGHIJKLMNOPQ";int count = 0; String s1 = c.get(0).toString();
-    if(!enumerated && !excludeShields){
+    if(c.size() > 1){if(!enumerated && !excludeShields){
          for (int i = 0; i < c.size(); i++){
             if(s1.equals(c.get(i).toString())){count++;}
             else{
@@ -57,7 +57,7 @@ public class Astronaut implements java.io.Serializable {
     else if(enumerated && !excludeShields){
         for (int i = 0; i < c.size(); i++){
             {if(!(s1.equals(c.get(i).toString()))){count++;}
-            else{s += "["+a.charAt(i)+"]"+s1+", ";s1 = c.get(i).toString(); i++;}}}}
+            else{s += "["+a.charAt(i)+"]"+s1+", ";s1 = c.get(i).toString(); i++;}}}}}
     String res = s.trim();
     if (s.length() > 0 && (s.trim()).charAt(s.length()-1) == ','){res = (s.trim()).substring(0, s.length()-1);}
     return res;}
