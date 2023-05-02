@@ -67,7 +67,10 @@ public class Astronaut implements java.io.Serializable {
                             List<Card> c = new ArrayList<Card>(track); return c.remove(c.size()-1);}
                             return null;}
     public Oxygen siphon(){return null;}
-    public Card steal(){return null;}
+    public Card steal(){List<Card> c = getHand(); 
+        Random r = new Random(); int i = r.nextInt(c.size()); Card o = c.get(i);
+    if (o instanceof Oxygen){for (int j = 0; j < oxygens.size(); j++){if(o.equals(oxygens.get(i)))oxygens.remove(j);}}
+    else {for (int j = 0; j < actions.size(); j++){if(o.equals(actions.get(i)))actions.remove(j);}} return o;}
     public void swapTrack(Astronaut swapee){}
 }
  
