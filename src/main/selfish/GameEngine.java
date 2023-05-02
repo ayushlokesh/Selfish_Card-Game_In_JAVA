@@ -74,7 +74,7 @@ public Oxygen[] splitOxygen(Oxygen dbl){List<Card> c = new ArrayList<Card>(); in
             if(count == 1){o[0] = (Oxygen)c.remove(c.size()-1);}
             else{o[0] = (Oxygen)c.get(c.size()-1);}}}    
     for (int i = c.size()-1; i >= 0; i--){gameDiscard.add(c.remove(i));}
-        if (count == 2){gameDiscard.add(dbl); return o;}
+        if (count == 2){gameDeck.remove(dbl); gameDiscard.add(dbl); return o;}
     return null;}
 public void startGame(){{for (Astronaut a : activePlayers){a.addToHand(gameDeck.drawOxygen(2));
      a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1));}}
