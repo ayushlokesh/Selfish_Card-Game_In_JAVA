@@ -42,23 +42,31 @@ public class Astronaut implements java.io.Serializable {
                 else{ s += count+"x "+s1+", ";s1 = c.get(i).toString();} 
                 count = 1;}}}
     else if(!enumerated && excludeShields){
+        s1 = null; 
+        for (Card o : c){if(!(o.toString().equals("Shield"))){s1 = o.toString(); break;}}
         for (int i = 0; i < c.size(); i++){
-            if(c.get(i).toString().equals("Shield")){
+            if(!(c.get(i).toString().equals("Shield"))){
                 if(s1.equals(c.get(i).toString())){count++;}else{
-                    if(count == 1){s += s1+", ";s1 = c.get(i).toString();}
+                    if(count == 1 || count == 0){s += s1+", ";s1 = c.get(i).toString();}
                     else{ s += count+"x "+s1+", ";s1 = c.get(i).toString();}
                      count = 0;}}}}
     else if(enumerated && excludeShields){
-        int i = 0;
+        int i = 0; s1 = null; 
+        for (Card o : c){if(!(o.toString().equals("Shield"))){s1 = o.toString(); break;}}
         for (Card o : c){
             if(!(o.toString().equals("Shield"))){
+
                 if(s1.equals(o.toString())){count++;}
                 else{s += "["+a.charAt(i)+"] "+s1+", "; i++;s1 = o.toString();}}}}
+            
     else if(enumerated && !excludeShields){
         int i = 0;
         for (Card o : c){
-            {if(!(s1.equals(o.toString()))){count++;}
-            else{s += "["+a.charAt(i)+"] "+s1+", "; s1 = o.toString(); i++;}}}}}
+            {if((s1.equals(o.toString()))){count++;}
+            else{s += "["+a.charAt(i)+"] "+s1+", ";
+             s1 = null;
+              s1 = o.toString();
+               i++;}}}}}
     String res = "";
     if (s.length() > 0 && (s.trim()).charAt(s.length()-2) == ','){res += (s.trim()).substring(0, s.length()-2);}
     return res;}
