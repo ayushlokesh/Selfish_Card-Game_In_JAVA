@@ -58,7 +58,7 @@ public GameDeck getGameDeck(){return gameDeck;}
 public GameDeck getGameDiscard(){return gameDiscard;}
 public SpaceDeck getSpaceDeck(){return spaceDeck;}
 public SpaceDeck getSpaceDiscard(){return spaceDiscard;}
-public Astronaut getWinner(){return currentPlayer;}
+public Astronaut getWinner(){return null;}
 public void killPlayer(Astronaut corpse){corpses.add(corpse);}
 public static GameEngine loadState(String path){return null;}
 public void mergeDecks(Deck deck1, Deck deck2){}
@@ -68,6 +68,6 @@ public void startGame(){{for (Astronaut a : activePlayers){a.addToHand(gameDeck.
      a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1));}}
      for (int i = 0; i < 4; i++){for (Astronaut a : activePlayers){a.addToHand(gameDeck.draw());}}
     hasStarted = true;}
-public void startTurn(){if(hasStarted ){List<Astronaut> a = new ArrayList<Astronaut>(activePlayers); currentPlayer = a.get(0);}}
+public void startTurn(){if(hasStarted && currentPlayer == null){List<Astronaut> a = new ArrayList<Astronaut>(activePlayers); currentPlayer = a.get(0);}}
 public Card travel(Astronaut traveller){Card o = gameDeck.draw(); if(!o.toString().equals("Gravitation anomaly")){traveller.addToTrack(o);}return traveller.hack("Oxygen(2)");}
 }
