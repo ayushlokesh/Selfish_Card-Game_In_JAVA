@@ -12,7 +12,7 @@ public class Astronaut implements java.io.Serializable {
     private List<Card> actions;
 
     @ Override
-    public String toString(){return name;}
+    public String toString(){if(this.isAlive()){return name;} return this.name + " (is dead)"; }
     
     public Astronaut(String name, GameEngine game){
         this.name = name;
