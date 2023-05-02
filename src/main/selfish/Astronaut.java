@@ -26,8 +26,9 @@ public class Astronaut implements java.io.Serializable {
                                      else {actions.add(card); }}
     public void addToTrack(Card card){track.add(card);}
     public int breathe(){for (int i = 0; i < oxygens.size(); i++){
-                        if (oxygens.get(i).getValue() == 1){oxygens.remove(i);  return oxygenRemaining();}}
+                        if (oxygens.get(i).getValue() == 1){oxygens.remove(i);if(oxygenRemaining() == 0){game.killPlayer(this);}  return oxygenRemaining();}}
                         oxygens.remove(oxygens.size()-1); oxygens.add(new Oxygen(1));
+                        
                         return oxygenRemaining();}
     public int distanceFromShip(){return (6 - track.size());}
     public List<Card> getActions(){List<Card> c = new ArrayList<Card>(actions); Collections.sort(c);return c;}
@@ -69,7 +70,7 @@ public class Astronaut implements java.io.Serializable {
     public Oxygen siphon(){return null;}
     public Card steal(){List<Card> c = getHand(); 
         Random r = new Random(); int i = r.nextInt(c.size()); Card o = c.get(i);
-    if (o instanceof Oxygen){for (int j = 0; j < oxygens.size(); j++){if(o.equals(oxygens.get(j)))oxygens.remove(j);}}
+    if (o instanceof Oxygen){for (int j = 0; j < oxygens.size(); j++){if(o.equals(oxygens.get(j)))oxygens.remove(j); if(oxygenRemaining() == 0){game.killPlayer(this);}}}
     else {for (int j = 0; j < actions.size(); j++){if(o.equals(actions.get(j)))actions.remove(j);}} return o;}
     public void swapTrack(Astronaut swapee){List<Card> c = new ArrayList<>(this.track); this.track = swapee.track; swapee.track = c;}
 }
