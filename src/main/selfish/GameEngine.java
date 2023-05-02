@@ -42,9 +42,9 @@ public int addPlayer(String player){
 public int endTurn(){List<Astronaut> a = new ArrayList<Astronaut>(activePlayers);
                     Astronaut o = a.remove(0); activePlayers.clear();activePlayers.addAll(a);
                     if(currentPlayer.isAlive()){activePlayers.add(o);}
-                    if(!gameOver()){currentPlayer = null;}
+                    if(!gameOver() ){currentPlayer = null;}
                     return activePlayers.size();}
-public boolean gameOver(){return currentPlayer.hasWon();}
+public boolean gameOver(){return (activePlayers.size() == 0 || currentPlayer.hasWon());}
 public List<Astronaut> getAllPlayers(){
     List<Astronaut> p = new ArrayList<Astronaut>();
     for (Astronaut a : activePlayers){p.add(a);}
