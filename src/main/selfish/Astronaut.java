@@ -59,7 +59,7 @@ public class Astronaut implements java.io.Serializable {
             {if(!(s1.equals(c.get(i).toString()))){count++;}
             else{s += "["+a.charAt(i)+"]"+s1+", ";s1 = c.get(i).toString(); i++;}}}}
     String res = s.trim();
-    if ((s.trim()).charAt(s.length()-1) == ','){res = (s.trim()).substring(0, s.length()-1);}
+    if (s.length() > 0 && (s.trim()).charAt(s.length()-1) == ','){res = (s.trim()).substring(0, s.length()-1);}
     return res;}
     public List<Card> getHand(){List<Card> c = new ArrayList<Card>();
                                 c.addAll(actions); c.addAll(oxygens); Collections.sort(c);
