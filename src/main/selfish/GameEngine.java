@@ -62,7 +62,20 @@ public void killPlayer(Astronaut corpse){corpses.add(corpse);}
 public static GameEngine loadState(String path){return null;}
 public void mergeDecks(Deck deck1, Deck deck2){}
 public void saveState(String path){}
-public Oxygen[] splitOxygen(Oxygen dbl){return null;}
+public Oxygen[] splitOxygen(Oxygen dbl){List<Card> c = new ArrayList<Card>(); int count = 0; Oxygen[] o = new Oxygen[2];
+    while(count < 2 && gameDeck.size() > 0){
+        c.add(gameDeck.draw()); 
+        if (c.get(c.size()-1).toString().equals("Oxygen(1)")){count++; 
+            if(count == 1){o[0] = (Oxygen)c.remove(c.size()-1);}
+            else{o[0] = (Oxygen)c.get(c.size()-1);}}}
+    for (int i = c.size()-1; i >= 0; i--){gameDeck.add(c.remove(i));}
+    while(count < 2 && gameDiscard.size() > 0){c.add(gameDiscard.draw()); 
+        if (c.get(c.size()-1).toString().equals("Oxygen(1)")){count++; 
+            if(count == 1){o[0] = (Oxygen)c.remove(c.size()-1);}
+            else{o[0] = (Oxygen)c.get(c.size()-1);}}}    
+    for (int i = c.size()-1; i >= 0; i--){gameDiscard.add(c.remove(i));}
+        if (count == 2){gameDiscard.add(dbl); return o;}
+    return null;}
 public void startGame(){{for (Astronaut a : activePlayers){a.addToHand(gameDeck.drawOxygen(2));
      a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1));}}
      for (int i = 0; i < 4; i++){for (Astronaut a : activePlayers){a.addToHand(gameDeck.draw());}}
