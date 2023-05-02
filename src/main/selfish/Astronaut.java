@@ -31,10 +31,34 @@ public class Astronaut implements java.io.Serializable {
                         return oxygenRemaining();}
     public int distanceFromShip(){return (6 - track.size());}
     public List<Card> getActions(){List<Card> c = new ArrayList<Card>(actions); Collections.sort(c);return c;}
-    public String getActionsStr(boolean enumerated, boolean excludeShields){String s = "";
-                                                                            
-    
-    return null;}
+    public String getActionsStr(boolean enumerated, boolean excludeShields){
+    String s = "";List<Card> c = getActions(); c.add(new Card("jsdbc", "dgcv"));
+    String a = "ABCDEFGHIJKLMNOPQ";int count = 0; String s1 = c.get(0).toString();
+    if(!enumerated && !excludeShields){
+         for (int i = 0; i < c.size(); i++){
+            if(s1.equals(c.get(i).toString())){count++;}
+            else{
+                if(count == 1){s += s1+", ";s1 = c.get(i).toString();}
+                else{ s += count+"x "+s1+", ";s1 = c.get(i).toString();} 
+                count = 1;}}}
+    else if(!enumerated && excludeShields){
+        for (int i = 0; i < c.size(); i++){
+            if(c.get(i).toString().equals("Shield")){
+                if(s1.equals(c.get(i).toString())){count++;}else{
+                    if(count == 1){s += s1+", ";s1 = c.get(i).toString();}
+                    else{ s += count+"x "+s1+", ";s1 = c.get(i).toString();}
+                     count = 0;}}}}
+    else if(enumerated && excludeShields){
+        int i = 0;
+        for (Card o : c){
+            if(o.toString().equals("Shield")){
+                if(s1.equals(c.get(i).toString())){count++;}
+                else{s += "["+a.charAt(i)+"]"+s1+", "; i++;s1 = c.get(i).toString();}}}}
+    else if(enumerated && !excludeShields){
+        for (int i = 0; i < c.size(); i++){
+            {if(s1.equals(c.get(i).toString())){count++;}
+            else{s += "["+a.charAt(i)+"]"+s1+", ";s1 = c.get(i).toString(); i++;}}}}
+    return s;}
     public List<Card> getHand(){List<Card> c = new ArrayList<Card>();
                                 c.addAll(actions); c.addAll(oxygens); Collections.sort(c);
                                 return c;}
