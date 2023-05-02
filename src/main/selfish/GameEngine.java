@@ -58,7 +58,7 @@ public GameDeck getGameDeck(){return gameDeck;}
 public GameDeck getGameDiscard(){return gameDiscard;}
 public SpaceDeck getSpaceDeck(){return spaceDeck;}
 public SpaceDeck getSpaceDiscard(){return spaceDiscard;}
-public Astronaut getWinner(){return null;}
+public Astronaut getWinner(){return currentPlayer;}
 public void killPlayer(Astronaut corpse){corpses.add(corpse);}
 public static GameEngine loadState(String path){return null;}
 public void mergeDecks(Deck deck1, Deck deck2){}
