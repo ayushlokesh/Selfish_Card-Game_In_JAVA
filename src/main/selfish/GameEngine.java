@@ -40,7 +40,7 @@ public int addPlayer(String player){
     activePlayers.add(new Astronaut(player, this));
     return getFullPlayerCount();}
 public int endTurn(){if(currentPlayer.isAlive()){activePlayers.add(currentPlayer);}
-                    else{killPlayer(currentPlayer);}
+                    // else{killPlayer(currentPlayer);}
                     if(!gameOver()){currentPlayer = null;}
                     return activePlayers.size();}
 public boolean gameOver(){return (activePlayers.size() == 0 || currentPlayer.hasWon());}
@@ -67,7 +67,9 @@ public void startGame(){{for (Astronaut a : activePlayers){a.addToHand(gameDeck.
      a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1));}}
      for (int i = 0; i < 4; i++){for (Astronaut a : activePlayers){a.addToHand(gameDeck.draw());}}
     hasStarted = true;}
-public void startTurn(){if(hasStarted && currentPlayer == null){List<Astronaut> a = new ArrayList<Astronaut>(activePlayers); currentPlayer = a.remove(0);
+public void startTurn(){
+    if(hasStarted && currentPlayer == null){List<Astronaut> a = new ArrayList<Astronaut>(activePlayers); 
+        currentPlayer = a.remove(0);
     activePlayers.clear();activePlayers.addAll(a); }}
 public Card travel(Astronaut traveller){traveller.hack("Oxygen(2)"); Card o = spaceDeck.draw(); if(!(o.toString().equals("Gravitational anomaly"))){traveller.addToTrack(o);}return o;}
 }
