@@ -52,7 +52,7 @@ public List<Astronaut> getAllPlayers(){
     }
     return p;}
 public Astronaut getCurrentPlayer(){return currentPlayer;}
-public int getFullPlayerCount(){if (currentPlayer.isAlive()){return getAllPlayers().size()+1;}return getAllPlayers().size();}
+public int getFullPlayerCount(){return getAllPlayers().size();}
 public GameDeck getGameDeck(){return gameDeck;}
 public GameDeck getGameDiscard(){return gameDiscard;}
 public SpaceDeck getSpaceDeck(){return spaceDeck;}
