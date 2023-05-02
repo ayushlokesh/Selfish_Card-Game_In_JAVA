@@ -39,10 +39,9 @@ public GameEngine(long seed, String gameDeck, String spaceDeck){
 public int addPlayer(String player){
     activePlayers.add(new Astronaut(player, this));
     return getFullPlayerCount();}
-public int endTurn(){List<Astronaut> a = new ArrayList<Astronaut>(activePlayers);
-                    Astronaut o = a.remove(0); activePlayers.clear();activePlayers.addAll(a);
-                    if(currentPlayer.isAlive()){activePlayers.add(o);}
-                    if(!gameOver() ){currentPlayer = null;}
+public int endTurn(){if(currentPlayer.isAlive()){activePlayers.add(currentPlayer);}
+                    else{killPlayer(currentPlayer);}
+                    currentPlayer = null;
                     return activePlayers.size();}
 public boolean gameOver(){return (activePlayers.size() == 0 || currentPlayer.hasWon());}
 public List<Astronaut> getAllPlayers(){
@@ -68,6 +67,7 @@ public void startGame(){{for (Astronaut a : activePlayers){a.addToHand(gameDeck.
      a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1));}}
      for (int i = 0; i < 4; i++){for (Astronaut a : activePlayers){a.addToHand(gameDeck.draw());}}
     hasStarted = true;}
-public void startTurn(){if(hasStarted && currentPlayer == null){List<Astronaut> a = new ArrayList<Astronaut>(activePlayers); currentPlayer = a.get(0);}}
-public Card travel(Astronaut traveller){Card o = gameDeck.draw(); if(!o.toString().equals("Gravitation anomaly")){traveller.addToTrack(o);}return traveller.hack("Oxygen(2)");}
+public void startTurn(){if(hasStarted && currentPlayer == null){List<Astronaut> a = new ArrayList<Astronaut>(activePlayers); currentPlayer = a.remove(0);
+    activePlayers.clear();activePlayers.addAll(a); }}
+public Card travel(Astronaut traveller){Card o = spaceDeck.draw(); if(!o.toString().equals("Gravitation anomaly")){traveller.addToTrack(o);}return traveller.hack("Oxygen(2)");}
 }
