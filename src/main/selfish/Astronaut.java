@@ -53,14 +53,14 @@ public class Astronaut implements java.io.Serializable {
         for (Card o : c){
             if(!(o.toString().equals("Shield"))){
                 if(s1.equals(o.toString())){count++;}
-                else{s += "["+a.charAt(i)+"]"+s1+", "; i++;s1 = o.toString();}}}}
+                else{s += "["+a.charAt(i)+"] "+s1+", "; i++;s1 = o.toString();}}}}
     else if(enumerated && !excludeShields){
         int i = 0;
         for (Card o : c){
             {if(!(s1.equals(o.toString()))){count++;}
-            else{s += "["+a.charAt(i)+"]"+s1+", ";s1 = o.toString(); i++;}}}}}
-    String res = s.trim();
-    if (s.length() > 0 && (s.trim()).charAt(s.length()-1) == ','){res = (s.trim()).substring(0, s.length()-1);}
+            else{s += "["+a.charAt(i)+"] "+s1+", "; s1 = o.toString(); i++;}}}}}
+    String res = "";
+    if (s.length() > 0 && (s.trim()).charAt(s.length()-2) == ','){res += (s.trim()).substring(0, s.length()-2);}
     return res;}
     public List<Card> getHand(){List<Card> c = new ArrayList<Card>();
                                 c.addAll(actions); c.addAll(oxygens); Collections.sort(c);
