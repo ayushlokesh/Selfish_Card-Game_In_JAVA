@@ -1,5 +1,11 @@
 package selfish;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -60,9 +66,29 @@ public SpaceDeck getSpaceDiscard(){return spaceDiscard;}
 public Astronaut getWinner(){Astronaut p = null; for(Astronaut o : activePlayers){if(o.hasWon()){p = o;}}
     return p;}
 public void killPlayer(Astronaut corpse){corpses.add(corpse);}
-public static GameEngine loadState(String path){return null;}
+public static GameEngine loadState(String path){ GameEngine p = null;
+    try {
+        FileInputStream fileIn = new FileInputStream("person.ser");
+        ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+        p = (GameEngine) objectIn.readObject();
+        objectIn.close();
+        fileIn.close();
+    } catch (Exception e) {
+        System.out.println("An error occurred: " );
+    }
+    return p;}
 public void mergeDecks(Deck deck1, Deck deck2){while(deck2.size() > 0){deck1.add(deck2.draw());}}
-public void saveState(String path){}
+public void saveState(String path){
+    try {
+        FileOutputStream fileOut = new FileOutputStream("person.ser");
+        ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+        objectOut.writeObject(this);
+        objectOut.close();
+        fileOut.close();
+    } catch (Exception e) {
+        System.out.println("An error occurred: ");
+    }
+}
 public Oxygen[] splitOxygen(Oxygen dbl){List<Card> c = new ArrayList<Card>(); int count = 0; Oxygen[] o = new Oxygen[2];
     while(count < 2 && gameDeck.size() > 0){
         c.add(gameDeck.draw()); 
