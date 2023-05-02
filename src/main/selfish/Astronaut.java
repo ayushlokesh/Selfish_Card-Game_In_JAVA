@@ -38,7 +38,7 @@ public class Astronaut implements java.io.Serializable {
          for (int i = 0; i < c.size(); i++){
             if(s1.equals(c.get(i).toString())){count++;}
             else{
-                if(count == 1){s += s1+", ";s1 = c.get(i).toString();}
+                if(count == 1 || count == 0){s += s1+", ";s1 = c.get(i).toString();}
                 else{ s += count+"x "+s1+", ";s1 = c.get(i).toString();} 
                 count = 1;}}}
     else if(!enumerated && excludeShields){
@@ -51,14 +51,16 @@ public class Astronaut implements java.io.Serializable {
     else if(enumerated && excludeShields){
         int i = 0;
         for (Card o : c){
-            if(o.toString().equals("Shield")){
+            if(!(o.toString().equals("Shield"))){
                 if(s1.equals(c.get(i).toString())){count++;}
                 else{s += "["+a.charAt(i)+"]"+s1+", "; i++;s1 = c.get(i).toString();}}}}
     else if(enumerated && !excludeShields){
         for (int i = 0; i < c.size(); i++){
-            {if(s1.equals(c.get(i).toString())){count++;}
+            {if(!(s1.equals(c.get(i).toString()))){count++;}
             else{s += "["+a.charAt(i)+"]"+s1+", ";s1 = c.get(i).toString(); i++;}}}}
-    return s;}
+    String res = s.trim();
+    if ((s.trim()).charAt(s.length()-1) == ','){res = (s.trim()).substring(0, s.length()-1);}
+    return res;}
     public List<Card> getHand(){List<Card> c = new ArrayList<Card>();
                                 c.addAll(actions); c.addAll(oxygens); Collections.sort(c);
                                 return c;}
