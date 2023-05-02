@@ -46,12 +46,12 @@ public class Astronaut implements java.io.Serializable {
                                 else {for (int i = 0; i < actions.size(); i++){
                                     if (actions.get(i).equals(card)){actions.remove(i); break;}}}
                                 if (oxygenRemaining() == 0){game.killPlayer(this); actions.clear();}}
-    public Card hack(String card) {Card c = new Card(); if (card == "Oxygen(1)" || card == "Oxygen(2)"){
+    public Card hack(String card) {Card c = new Card(); if (card.equals("Oxygen(1)") || card.equals("Oxygen(2)")){
                                 for (int i = 0; i < oxygens.size(); i++){
-                                    if (oxygens.get(i).toString() == card){c = oxygens.remove(i); break;}}}
+                                    if (oxygens.get(i).toString().equals(card)){c = oxygens.remove(i); break;}}}
                                 else {for (int i = 0; i < actions.size(); i++){
                                     if (actions.get(i).toString() == card){c = actions.remove(i); break;}}}
-                                    if (oxygenRemaining() == 0){this.actions.clear(); game.killPlayer(this);}
+                                    if (oxygenRemaining() == 0){actions.clear(); game.killPlayer(this);}
                                     return c;
                                 }
     public int hasCard(String card){int num = 0; List<Card> c = getHand();
