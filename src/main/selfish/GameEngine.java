@@ -61,7 +61,7 @@ public Astronaut getWinner(){Astronaut p = null; for(Astronaut o : activePlayers
     return p;}
 public void killPlayer(Astronaut corpse){corpses.add(corpse);}
 public static GameEngine loadState(String path){return null;}
-public void mergeDecks(Deck deck1, Deck deck2){}
+public void mergeDecks(Deck deck1, Deck deck2){while(deck2.size() > 0){deck1.add(deck2.draw());}}
 public void saveState(String path){}
 public Oxygen[] splitOxygen(Oxygen dbl){List<Card> c = new ArrayList<Card>(); int count = 0; Oxygen[] o = new Oxygen[2];
     while(count < 2 && gameDeck.size() > 0){
