@@ -64,7 +64,10 @@ public static GameEngine loadState(String path){return null;}
 public void mergeDecks(Deck deck1, Deck deck2){}
 public void saveState(String path){}
 public Oxygen[] splitOxygen(Oxygen dbl){return null;}
-public void startGame(){hasStarted = true;}
+public void startGame(){{for (Astronaut a : activePlayers){a.addToHand(gameDeck.drawOxygen(2));
+     a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1));}}
+     for (int i = 0; i < 4; i++){for (Astronaut a : activePlayers){a.addToHand(gameDeck.draw());}}
+    hasStarted = true;}
 public void startTurn(){if(hasStarted){List<Astronaut> a = new ArrayList<Astronaut>(activePlayers); currentPlayer = a.get(0);}}
 public Card travel(Astronaut traveller){Card o = gameDeck.draw(); if(!o.toString().equals("Gravitation anomaly")){traveller.addToTrack(o);}return traveller.hack("Oxygen(2)");}
 }
