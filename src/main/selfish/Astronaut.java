@@ -73,7 +73,37 @@ public class Astronaut implements java.io.Serializable {
     public List<Card> getHand(){List<Card> c = new ArrayList<Card>();
                                 c.addAll(actions); c.addAll(oxygens); Collections.sort(c);
                                 return c;}
-    public String getHandStr(){return null;}
+    public String getHandStr(){List<Card> cards = this.getHand();
+        String ans = "";
+        int ones = 0;
+        int doubles = 0;
+        for (Card card : cards) {
+            if (card instanceof Oxygen && ((Oxygen) (card)).getValue() == 1) {
+                ones++;
+            } else if (card instanceof Oxygen && ((Oxygen) (card)).getValue() == 2) {
+                doubles++;
+            } else {
+                ans += card.toString();
+            }
+        }
+        String twos = "";
+        String singles = "";
+        if (doubles > 1) {
+            twos += doubles + "x " + "Oxygen(2), ";
+        } else if (doubles == 1 && ones > 0) {
+            twos += "Oxygen(2), ";
+        } else if (doubles == 1 && ones == 0) {
+            twos += "Oxygen(2)";
+        }
+
+        if (ones > 1) {
+            singles += ones + "x " + "Oxygen(1); ";
+        }
+        if (ones == 1) {
+            singles += "Oxygen(1); ";
+        }
+        return (twos + singles + ans);
+}
     public Collection<Card> getTrack(){Collection<Card> c = new ArrayList<Card>(track); return c;}
     public void hack(Card card){if (card instanceof Oxygen){
                                 for (int i = 0; i < oxygens.size(); i++){
