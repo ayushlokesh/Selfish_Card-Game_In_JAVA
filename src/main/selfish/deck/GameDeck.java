@@ -35,9 +35,11 @@ public class GameDeck extends Deck{
 
         for (int j = 0; j < a.size(); j++){a.add(this.draw());
              if (a.get(a.size()-1) instanceof Oxygen && ((Oxygen)a.get(a.size()-1)).getValue() == i)
-             {c = (Oxygen)a.remove(a.size()-1); break;}}
-        for (int j = a.size()-1; j >= 0; j--){this.add(a.remove(j));}
-        return c;}
+             {c = (Oxygen)a.remove(a.size()-1); 
+                for (int k = a.size()-1; k >= 0; k--){this.add(a.remove(k));} return c;} 
+             
+       }
+        return null;}
 
     public Oxygen[] splitOxygen(Oxygen o){
         Oxygen[] x = new Oxygen[2];
