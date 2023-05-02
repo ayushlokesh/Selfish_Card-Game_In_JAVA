@@ -30,7 +30,7 @@ public class GameDeck extends Deck{
     }
 
     public Oxygen drawOxygen(int i){
-        Oxygen c = new Oxygen(i);
+        Oxygen c;
         List<Card> a = new ArrayList<Card>();
         for (int j = 0; j < a.size(); j++){a.add(this.draw());
              if (a.get(a.size()-1).toString().equals("Oxygen(" +i+ ")"))
