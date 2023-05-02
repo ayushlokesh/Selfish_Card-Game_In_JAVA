@@ -41,7 +41,7 @@ public int addPlayer(String player){
     return getFullPlayerCount();}
 public int endTurn(){if(currentPlayer.isAlive()){activePlayers.add(currentPlayer);}
                     else{killPlayer(currentPlayer);}
-                    currentPlayer = null;
+                    if(!gameOver()){currentPlayer = null;}
                     return activePlayers.size();}
 public boolean gameOver(){return (activePlayers.size() == 0 || currentPlayer.hasWon());}
 public List<Astronaut> getAllPlayers(){
@@ -52,7 +52,7 @@ public List<Astronaut> getAllPlayers(){
     }
     return p;}
 public Astronaut getCurrentPlayer(){return currentPlayer;}
-public int getFullPlayerCount(){return getAllPlayers().size();}
+public int getFullPlayerCount(){if (currentPlayer.isAlive()){return getAllPlayers().size()+1;}return getAllPlayers().size();}
 public GameDeck getGameDeck(){return gameDeck;}
 public GameDeck getGameDiscard(){return gameDiscard;}
 public SpaceDeck getSpaceDeck(){return spaceDeck;}
