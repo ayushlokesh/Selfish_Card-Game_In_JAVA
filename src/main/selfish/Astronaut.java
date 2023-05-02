@@ -52,12 +52,13 @@ public class Astronaut implements java.io.Serializable {
         int i = 0;
         for (Card o : c){
             if(!(o.toString().equals("Shield"))){
-                if(s1.equals(c.get(i).toString())){count++;}
-                else{s += "["+a.charAt(i)+"]"+s1+", "; i++;s1 = c.get(i).toString();}}}}
+                if(s1.equals(o.toString())){count++;}
+                else{s += "["+a.charAt(i)+"]"+s1+", "; i++;s1 = o.toString();}}}}
     else if(enumerated && !excludeShields){
-        for (int i = 0; i < c.size(); i++){
-            {if(!(s1.equals(c.get(i).toString()))){count++;}
-            else{s += "["+a.charAt(i)+"]"+s1+", ";s1 = c.get(i).toString(); i++;}}}}}
+        int i = 0;
+        for (Card o : c){
+            {if(!(s1.equals(o.toString()))){count++;}
+            else{s += "["+a.charAt(i)+"]"+s1+", ";s1 = o.toString(); i++;}}}}}
     String res = s.trim();
     if (s.length() > 0 && (s.trim()).charAt(s.length()-1) == ','){res = (s.trim()).substring(0, s.length()-1);}
     return res;}
