@@ -67,12 +67,12 @@ public Oxygen[] splitOxygen(Oxygen dbl){List<Card> c = new ArrayList<Card>(); in
         c.add(gameDeck.draw()); 
         if (c.get(c.size()-1).toString().equals("Oxygen(1)")){count++; 
             if(count == 1){o[0] = (Oxygen)c.remove(c.size()-1);}
-            else{o[0] = (Oxygen)c.get(c.size()-1);}}}
+            else{o[0] = (Oxygen)c.remove(c.size()-1);}}}
     for (int i = c.size()-1; i >= 0; i--){gameDeck.add(c.remove(i));}
     while(count < 2 && gameDiscard.size() > 0){c.add(gameDiscard.draw()); 
         if (c.get(c.size()-1).toString().equals("Oxygen(1)")){count++; 
             if(count == 1){o[0] = (Oxygen)c.remove(c.size()-1);}
-            else{o[0] = (Oxygen)c.get(c.size()-1);}}}    
+            else{o[0] = (Oxygen)c.remove(c.size()-1);}}}    
     for (int i = c.size()-1; i >= 0; i--){gameDiscard.add(c.remove(i));}
         if (count == 2){gameDeck.remove(dbl); gameDiscard.add(dbl); return o;}
     return null;}
