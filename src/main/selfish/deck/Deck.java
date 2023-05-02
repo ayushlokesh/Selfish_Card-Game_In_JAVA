@@ -2,6 +2,7 @@ package selfish.deck;
 
 import java.io.*;
 import java.util.*;
+import java.util.Random;
 
 
 public abstract class Deck implements java.io.Serializable{

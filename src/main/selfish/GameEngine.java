@@ -17,7 +17,7 @@ private Collection<Astronaut> activePlayers;
 private List<Astronaut> corpses;
 private Astronaut currentPlayer;
 private boolean hasStarted = false;
-private Random random;
+private Random random = new Random();
 private GameDeck gameDeck;
 private GameDeck gameDiscard;
 private SpaceDeck spaceDeck;
@@ -26,6 +26,7 @@ final private static long serialVersionUID = 0;
 
 private GameEngine(){}
 public GameEngine(long seed, String gameDeck, String spaceDeck){
+    random.setSeed(seed);
     this.gameDeck = new GameDeck(gameDeck);
     this.spaceDeck = new SpaceDeck(spaceDeck);
     spaceDiscard = new SpaceDeck();
