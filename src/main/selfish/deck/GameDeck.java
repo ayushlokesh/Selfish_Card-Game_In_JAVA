@@ -45,8 +45,8 @@ public class GameDeck extends Deck{
 
     public Oxygen[] splitOxygen(Oxygen o){
         Oxygen[] x = new Oxygen[2];
-        x[0] = this.drawOxygen(1);
         x[1] = this.drawOxygen(1);
+        x[0] = this.drawOxygen(1);
         this.add(o);
         
         return x;}
