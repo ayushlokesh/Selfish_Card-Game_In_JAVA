@@ -43,7 +43,7 @@ public int endTurn(){if(currentPlayer.isAlive()){activePlayers.add(currentPlayer
                     // else{killPlayer(currentPlayer);}
                     if(!gameOver()){currentPlayer = null;}
                     return activePlayers.size();}
-public boolean gameOver(){return (activePlayers.size() == 0 || currentPlayer.hasWon());}
+public boolean gameOver(){if(currentPlayer == null){return false;} return (activePlayers.size() == 0 || currentPlayer.hasWon());}
 public List<Astronaut> getAllPlayers(){
     List<Astronaut> p = new ArrayList<Astronaut>();
     for (Astronaut a : activePlayers){p.add(a);}
