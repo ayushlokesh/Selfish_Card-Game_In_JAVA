@@ -31,15 +31,19 @@ public class GameDeck extends Deck{
 
     public Oxygen drawOxygen(int i){
         Oxygen c = new Oxygen(i);
-        this.remove(c);
+        List<Card> a = new ArrayList<Card>();
+        for (int j = 0; j < a.size(); j++){a.add(this.draw());
+             if (a.get(a.size()-1).toString().equals("Oxygen(" +i+ ")"))
+             {c = (Oxygen)a.remove(a.size()-1); break;}}
+        for (int j = a.size()-1; j >= 0; j--){this.add(a.remove(j));}
         return c;}
 
     public Oxygen[] splitOxygen(Oxygen o){
-        Oxygen c =new Oxygen(1);
-        this.remove(c);
-        this.remove(c);
-        Oxygen[] x;
-        x = new Oxygen[] {new Oxygen(1),new Oxygen(1)};
+        Oxygen[] x = new Oxygen[2];
+        x[0] = this.drawOxygen(1);
+        x[1] = this.drawOxygen(1);
+        this.add(o);
+        
         return x;}
     
 }
