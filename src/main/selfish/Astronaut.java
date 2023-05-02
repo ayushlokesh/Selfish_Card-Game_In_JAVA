@@ -68,7 +68,7 @@ public class Astronaut implements java.io.Serializable {
                             return null;}
     public Oxygen siphon(){Oxygen o; for (int i = 0; i < oxygens.size(); i++){
         if (oxygens.get(i).getValue() == 1){o = oxygens.remove(i);if(oxygenRemaining() == 0){game.killPlayer(this);}return o;}}
-        o = oxygens.remove(oxygens.size()-1); oxygens.add(new Oxygen(1)); return o;}
+        o = new Oxygen(1); oxygens.remove(oxygens.size()-1); oxygens.add(new Oxygen(1)); return o;}
     public Card steal(){List<Card> c = getHand(); 
         Random r = new Random(); int i = r.nextInt(c.size()); Card o = c.get(i);
     if (o instanceof Oxygen){for (int j = 0; j < oxygens.size(); j++){if(o.equals(oxygens.get(j)))oxygens.remove(j); if(oxygenRemaining() == 0){game.killPlayer(this);}}}
