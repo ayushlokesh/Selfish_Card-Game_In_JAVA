@@ -69,5 +69,5 @@ public void startGame(){{for (Astronaut a : activePlayers){a.addToHand(gameDeck.
     hasStarted = true;}
 public void startTurn(){if(hasStarted && currentPlayer == null){List<Astronaut> a = new ArrayList<Astronaut>(activePlayers); currentPlayer = a.remove(0);
     activePlayers.clear();activePlayers.addAll(a); }}
-public Card travel(Astronaut traveller){Card o = spaceDeck.draw(); if(!o.toString().equals("Gravitation anomaly")){traveller.addToTrack(o);}return traveller.hack("Oxygen(2)");}
+public Card travel(Astronaut traveller){traveller.hack("Oxygen(2)"); Card o = spaceDeck.draw(); if(!o.toString().equals("Gravitation anomaly")){traveller.addToTrack(o);}return o;}
 }
