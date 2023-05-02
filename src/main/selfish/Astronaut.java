@@ -23,20 +23,20 @@ public class Astronaut implements java.io.Serializable {
     }
 
     public void addToHand(Card card){if (card instanceof Oxygen){oxygens.add((Oxygen)card);}
-                                     else {actions.add(card); Collections.sort(actions);}}
+                                     else {actions.add(card); }}
     public void addToTrack(Card card){track.add(card);}
     public int breathe(){for (int i = 0; i < oxygens.size(); i++){
                         if (oxygens.get(i).getValue() == 1){oxygens.remove(i);  return oxygenRemaining();}}
                         oxygens.remove(oxygens.size()); oxygens.add(new Oxygen(1));
                         return oxygenRemaining();}
     public int distanceFromShip(){return (6 - track.size());}
-    public List<Card> getActions(){List<Card> c = new ArrayList<Card>(actions);return c;}
+    public List<Card> getActions(){List<Card> c = new ArrayList<Card>(actions); Collections.sort(c);return c;}
     public String getActionsStr(boolean enumerated, boolean excludeShields){String s = "";
                                                                             
     
     return null;}
     public List<Card> getHand(){List<Card> c = new ArrayList<Card>();
-                                c.addAll(actions); c.addAll(oxygens);
+                                c.addAll(actions); c.addAll(oxygens); Collections.sort(c);
                                 return c;}
     public String getHandStr(){return null;}
     public Collection<Card> getTrack(){Collection<Card> c = new ArrayList<Card>(track); return c;}
