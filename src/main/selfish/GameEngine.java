@@ -68,7 +68,7 @@ public Astronaut getWinner(){Astronaut p = null; for(Astronaut o : activePlayers
 public void killPlayer(Astronaut corpse){corpses.add(corpse);}
 public static GameEngine loadState(String path){ GameEngine p = null;
     try {
-        FileInputStream fileIn = new FileInputStream("person.ser");
+        FileInputStream fileIn = new FileInputStream(path);
         ObjectInputStream objectIn = new ObjectInputStream(fileIn);
         p = (GameEngine) objectIn.readObject();
         objectIn.close();
@@ -80,7 +80,7 @@ public static GameEngine loadState(String path){ GameEngine p = null;
 public void mergeDecks(Deck deck1, Deck deck2){while(deck2.size() > 0){deck1.add(deck2.draw());}}
 public void saveState(String path){
     try {
-        FileOutputStream fileOut = new FileOutputStream("person.ser");
+        FileOutputStream fileOut = new FileOutputStream(path);
         ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
         objectOut.writeObject(this);
         objectOut.close();
