@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.List;
 
+import selfish.GameException;
+
 public class SpaceDeck extends Deck{
     final public static String ASTEROID_FIELD = "Asteroid field";
     final public static String BLANK_SPACE = "Blank space";
@@ -19,11 +21,13 @@ public class SpaceDeck extends Deck{
     final private static long serialVersionUID = 0;
 
     public SpaceDeck(){
-        add(loadCards(""));
+        
     }
     
-    public SpaceDeck(String s){
-        add(loadCards(s));
+    public SpaceDeck(String s) throws GameException{
+        try{
+            add(loadCards(s));}
+            catch(Exception e){throw new GameException("File not Found", new FileNotFoundException());}
     }
   
 }
