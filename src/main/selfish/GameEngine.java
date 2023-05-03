@@ -132,23 +132,25 @@ public void killPlayer(Astronaut corpse){corpses.add(corpse);}
 
 
 /**
- * GameEngine loadState
+ * loadState: loads state of the game
  * @param path GameEngine loadState  
- * @return GameEngine loadState 
+ * @return GameEngine object 
  * @throws GameException GameEngine loadState
  */
-public static GameEngine loadState(String path) throws GameException{ GameEngine p = null;
+public static GameEngine loadState(String path) throws GameException{ 
+    GameEngine p = null;
     try {
         FileInputStream fileIn = new FileInputStream(path);
         ObjectInputStream objectIn = new ObjectInputStream(fileIn);
         p = (GameEngine) objectIn.readObject();
         objectIn.close();
         fileIn.close();
+        return p;
     } catch (Exception e) {
         System.out.println("An error occurred: " );
         throw new GameException(path, e);
     }
-    return p;}
+}
 /**
  * sdufhariefg
  * @param deck1 so;fuhaweir;fh
