@@ -137,7 +137,7 @@ public void killPlayer(Astronaut corpse){corpses.add(corpse);}
  * @return GameEngine object 
  * @throws GameException GameEngine loadState
  */
-public static GameEngine loadState(String path) throws GameException{ 
+public static GameEngine loadState(String path) throws GameException { 
     GameEngine p = null;
     try {
         FileInputStream fileIn = new FileInputStream(path);

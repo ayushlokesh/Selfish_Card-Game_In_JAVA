@@ -9,7 +9,7 @@ package selfish.deck;
 public class Card implements java.io.Serializable, Comparable<Card> {
     private String name;
     private String description;
-    final private static long serialVersionUID = 0;
+    private static final long serialVersionUID = 0;
 /**
  * airlha;eughaeor;g
  * @param name auighilreh;agie
