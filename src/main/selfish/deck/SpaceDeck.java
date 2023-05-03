@@ -14,16 +14,27 @@ import selfish.GameException;
  * @since 1.0
  */
 public class SpaceDeck extends Deck{
+    /**UFHeovngrvjnewiv */
     final public static String ASTEROID_FIELD = "Asteroid field";
+    /**UFHeovngrvjnewiv */
     final public static String BLANK_SPACE = "Blank space";
+    /**UFHeovngrvjnewiv */
     final public static String COSMIC_RADIATION = "Cosmic radiation";
+    /**UFHeovngrvjnewiv */
     final public static String GRAVITATIONAL_ANOMALY = "Gravitation anomaly";
+    /**UFHeovngrvjnewiv */
     final public static String HYPERSPACE = "Hyperspace";
+    /**UFHeovngrvjnewiv */
     final public static String METEOROID = "Meteoroid";
+    /**UFHeovngrvjnewiv */
     final public static String MYSTERIOUS_NEBULA = "Mysterious nebula";
+    /**UFHeovngrvjnewiv */
     final public static String SOLAR_FLARE = "Solar flare";
+    /**UFHeovngrvjnewiv */
     final public static String USEFUL_JUNK = "Useful junk";
+    /**UFHeovngrvjnewiv */
     final public static String WORMHOLE = "Wormhole";
+    /**UFHeovngrvjnewiv */
     final private static long serialVersionUID = 0;
 /**
  * lvdha;hvberonvr
