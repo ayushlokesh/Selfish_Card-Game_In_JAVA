@@ -123,5 +123,6 @@ public void startTurn(){if (activePlayers.size() == 0 || hasStarted == false || 
 public Card travel(Astronaut traveller){
     if (traveller.oxygenRemaining() <= 1) {
         throw new IllegalStateException();}
-        traveller.hack("Oxygen(2)"); Card o = spaceDeck.draw(); if(!(o.toString().equals("Gravitational anomaly"))){traveller.addToTrack(o);}return o;}
+        //remove2ones
+        traveller.breathe(); traveller.breathe(); Card o = spaceDeck.draw(); if(!(o.toString().equals("Gravitational anomaly"))){traveller.addToTrack(o);}return o;}
 }

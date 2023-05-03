@@ -116,10 +116,11 @@ public class Astronaut implements java.io.Serializable {
         boolean fnd = false;
         if (card instanceof Oxygen){
                                 for (int i = 0; i < oxygens.size(); i++){
-                                    if (oxygens.get(i).getValue() == ((Oxygen)card).getValue()){fnd = true;oxygens.remove(i); break;}}}
+                                    if (oxygens.get(i).getValue() == ((Oxygen)card).getValue()){fnd = true; oxygens.remove(i); break;}}}
                                 else {for (int i = 0; i < actions.size(); i++){
-                                    if (actions.get(i).equals(card)){fnd = true;actions.remove(i); break;}}}
-                                if (oxygenRemaining() == 0){game.killPlayer(this); actions.clear();} if(!fnd){throw new IllegalArgumentException();}}
+                                    if (actions.get(i).equals(card)){fnd = true; actions.remove(i); break;}}}
+                                if(!fnd){throw new IllegalArgumentException();}
+                                if (oxygenRemaining() == 0){game.killPlayer(this); actions.clear();} }
     public Card hack(String card) {if (card == null){throw new IllegalArgumentException();}
         boolean fnd = false;
         Card c = new Card(); if (card.equals("Oxygen(1)") || card.equals("Oxygen(2)")){
