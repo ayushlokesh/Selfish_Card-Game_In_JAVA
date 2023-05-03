@@ -88,15 +88,53 @@ public List<Astronaut> getAllPlayers(){
         for(Astronaut a : corpses){p.add(a);}
     } if (currentPlayer != null && currentPlayer.isAlive()){Astronaut a = currentPlayer; p.add(a);}
     return p;}
+/**
+ * fgser.b
+ * @return skfhergh
+ */
 public Astronaut getCurrentPlayer(){return currentPlayer;}
+/**
+ * ,sadfgear
+ * @return khfarwbgare
+ */
 public int getFullPlayerCount(){return getAllPlayers().size();}
+/**
+ * b,fawefeghreg
+ * @return khfouhergoehr
+ */
 public GameDeck getGameDeck(){return gameDeck;}
+/**
+ * ak.fbakr
+ * @return sfegwavgarh
+ */
 public GameDeck getGameDiscard(){return gameDiscard;}
+/**
+ * a.kjefhaerf
+ * @return vhwahflh
+ */
 public SpaceDeck getSpaceDeck(){return spaceDeck;}
+/**
+ * fbrgbfrbv
+ * @return .ca.evaev
+ */
 public SpaceDeck getSpaceDiscard(){return spaceDiscard;}
+/**
+ * bbfgbfg
+ * @return bdbsbnbfb
+ */
 public Astronaut getWinner(){Astronaut p = null; for(Astronaut o : activePlayers){if(o.hasWon()){p = o;}}
     return p;}
+/**
+ * fgaerifh
+ * @param corpse dhawefheaw
+ */
 public void killPlayer(Astronaut corpse){corpses.add(corpse);}
+/**
+ * s.kghserohg
+ * @param path isfhaerifvh
+ * @return hafvaeriv
+ * @throws GameException sfdlhaeirfvh
+ */
 public static GameEngine loadState(String path) throws GameException{ GameEngine p = null;
     try {
         FileInputStream fileIn = new FileInputStream(path);
@@ -109,7 +147,16 @@ public static GameEngine loadState(String path) throws GameException{ GameEngine
         throw new GameException(path, e);
     }
     return p;}
+/**
+ * sdufhariefg
+ * @param deck1 so;fuhaweir;fh
+ * @param deck2 slidfharuief
+ */
 public void mergeDecks(Deck deck1, Deck deck2){while(deck2.size() > 0){deck1.add(deck2.draw());}}
+/**
+ * slidfharuief
+ * @param path slidfharuief
+ */
 public void saveState(String path){
     try {
         FileOutputStream fileOut = new FileOutputStream(path);
@@ -121,6 +168,11 @@ public void saveState(String path){
         System.out.println("An error occurred: ");
     }
 }
+/**
+ * slidfharuief
+ * @param dbl slidfharuief
+ * @return slidfharuief
+ */
 public Oxygen[] splitOxygen(Oxygen dbl){if ((this.gameDiscard.size() == 0 && this.gameDeck.size() == 1)
 || (this.gameDiscard.size() == 1 && this.gameDeck.size() == 0)) {
 throw new IllegalStateException();
@@ -139,17 +191,28 @@ throw new IllegalStateException();
     for (int i = c.size()-1; i >= 0; i--){gameDiscard.add(c.remove(i));}
         if (count == 2){gameDeck.remove(dbl); gameDiscard.add(dbl); return o;}
     return null;}
+/**
+ * slidfharuief
+ */
 public void startGame(){if (hasStarted || activePlayers.size() == 1 || activePlayers.size() == 6) {
     throw new IllegalStateException();}
     {for (Astronaut a : activePlayers){a.addToHand(gameDeck.drawOxygen(2));
      a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1));}}
      for (int i = 0; i < 4; i++){for (Astronaut a : activePlayers){a.addToHand(gameDeck.draw());}}
     hasStarted = true;}
+/**
+ * bcgashbv
+ */
 public void startTurn(){if (activePlayers.size() == 0 || hasStarted == false || currentPlayer != null || getWinner() != null) {
     throw new IllegalStateException();}
     if(hasStarted && currentPlayer == null){List<Astronaut> a = new ArrayList<Astronaut>(activePlayers); 
         currentPlayer = a.remove(0);
     activePlayers.clear();activePlayers.addAll(a); }}
+/**
+ * ksjfhariehf
+ * @param traveller zdlfhariufh
+ * @return kahdgfilawergfui
+ */
 public Card travel(Astronaut traveller){
     if (traveller.oxygenRemaining() <= 1) {
         throw new IllegalStateException();}
