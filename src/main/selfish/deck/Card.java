@@ -10,20 +10,33 @@ public class Card implements java.io.Serializable, Comparable<Card> {
     private String name;
     private String description;
     final private static long serialVersionUID = 0;
-
+/**
+ * airlha;eughaeor;g
+ * @param name auighilreh;agie
+ * @param desc sagfliauerghliuer
+ */
     public Card(String name, String desc){
         this.name = name;
         this.description = desc;
     }
-
+/*
+ * awehf;uoerhg
+ */
     public Card(){}
 
-    @ Override
+/**
+ * kjefbawkfb
+ */
     public String toString(){return name;}
-
+/**
+ * kawhf;arehg;o
+ * @return akdfiewbfo;HE
+ */
     public String getDescription(){return description;}
 
-    @ Override
+/**
+ * kdaefgbearlb
+ */
     public int compareTo(Card o) {        
         return this.toString().compareTo(o.toString());
     }
