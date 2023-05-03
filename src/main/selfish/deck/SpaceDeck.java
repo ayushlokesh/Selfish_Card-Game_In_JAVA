@@ -14,25 +14,25 @@ import selfish.GameException;
  * @since 1.0
  */
 public class SpaceDeck extends Deck{
-    /**UFHeovngrvjnewiv */
+/**UFHeovngrvjnewiv */
     final public static String ASTEROID_FIELD = "Asteroid field";
-    /**UFHeovngrvjnewiv */
+/**UFHeovngrvjnewiv */
     final public static String BLANK_SPACE = "Blank space";
-    /**UFHeovngrvjnewiv */
+/**UFHeovngrvjnewiv */
     final public static String COSMIC_RADIATION = "Cosmic radiation";
-    /**UFHeovngrvjnewiv */
+/**UFHeovngrvjnewiv */
     final public static String GRAVITATIONAL_ANOMALY = "Gravitation anomaly";
-    /**UFHeovngrvjnewiv */
+/**UFHeovngrvjnewiv */
     final public static String HYPERSPACE = "Hyperspace";
-    /**UFHeovngrvjnewiv */
+/**UFHeovngrvjnewiv */
     final public static String METEOROID = "Meteoroid";
-    /**MYSTERIOUS NEBULA UFHeovngrvjnewiv */
+/**MYSTERIOUS NEBULA UFHeovngrvjnewiv */
     final public static String MYSTERIOUS_NEBULA = "Mysterious nebula";
-    /**SOLAR FLARE UFHeovngrvjnewiv */
+/**SOLAR FLARE UFHeovngrvjnewiv */
     final public static String SOLAR_FLARE = "Solar flare";
-    /**USEFUL JUNK UFHeovngrvjnewiv */
+/**USEFUL JUNK UFHeovngrvjnewiv */
     final public static String USEFUL_JUNK = "Useful junk";
-    /**WORMHOLE  UFHeovngrvjnewiv */
+/**WORMHOLE  UFHeovngrvjnewiv */
     final public static String WORMHOLE = "Wormhole";
     final private static long serialVersionUID = 0;
 /**
