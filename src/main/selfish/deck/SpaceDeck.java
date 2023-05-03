@@ -26,15 +26,14 @@ public class SpaceDeck extends Deck{
     final public static String HYPERSPACE = "Hyperspace";
     /**UFHeovngrvjnewiv */
     final public static String METEOROID = "Meteoroid";
-    /**UFHeovngrvjnewiv */
+    /**MYSTERIOUS NEBULA UFHeovngrvjnewiv */
     final public static String MYSTERIOUS_NEBULA = "Mysterious nebula";
-    /**UFHeovngrvjnewiv */
+    /**SOLAR FLARE UFHeovngrvjnewiv */
     final public static String SOLAR_FLARE = "Solar flare";
-    /**UFHeovngrvjnewiv */
+    /**USEFUL JUNK UFHeovngrvjnewiv */
     final public static String USEFUL_JUNK = "Useful junk";
-    /**UFHeovngrvjnewiv */
+    /**WORMHOLE  UFHeovngrvjnewiv */
     final public static String WORMHOLE = "Wormhole";
-    /**UFHeovngrvjnewiv */
     final private static long serialVersionUID = 0;
 /**
  * lvdha;hvberonvr
