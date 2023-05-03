@@ -34,9 +34,16 @@ private GameDeck gameDeck;
 private GameDeck gameDiscard;
 private SpaceDeck spaceDeck;
 private SpaceDeck spaceDiscard;
-final private static long serialVersionUID = 0;
+private static final long serialVersionUID = 0;
 
 private GameEngine(){}
+/**
+ * kz.fg
+ * @param seed kjharejnv
+ * @param gameDeck krgslkf
+ * @param spaceDeck kjdhf
+ * @throws GameException kfhskjf
+ */
 public GameEngine(long seed, String gameDeck, String spaceDeck) throws GameException{
     random.setSeed(seed);
     this.gameDeck = new GameDeck(gameDeck);
@@ -48,6 +55,11 @@ public GameEngine(long seed, String gameDeck, String spaceDeck) throws GameExcep
     this.activePlayers = new ArrayList<Astronaut>();
     this.corpses = new ArrayList<Astronaut>();
 }
+/**
+ * 
+ * @param player
+ * @return
+ */
 public int addPlayer(String player){if (hasStarted){throw new IllegalStateException("jhbdfhiabv");}
     if(activePlayers.size() == 5){throw new IllegalStateException("jhbdfhiabv");}
     activePlayers.add(new Astronaut(player, this));
