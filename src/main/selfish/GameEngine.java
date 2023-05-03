@@ -130,10 +130,10 @@ public Astronaut getWinner(){Astronaut p = null; for(Astronaut o : activePlayers
  */
 public void killPlayer(Astronaut corpse){corpses.add(corpse);}
 /**
- * s.kghserohg
- * @param path isfhaerifvh
- * @return hafvaeriv
- * @throws GameException sfdlhaeirfvh
+ * aydvgewiu;gh
+ * @param path loadstate gameexception ICGFVH 
+ * @return SDVH;IWOUVH;OWEIHBV
+ * @throws GameException AKDSGCWLVIE;WOIEFHV[fj]
  */
 public static GameEngine loadState(String path) throws GameException{ GameEngine p = null;
     try {

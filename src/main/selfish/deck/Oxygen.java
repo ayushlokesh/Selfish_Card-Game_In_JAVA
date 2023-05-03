@@ -26,6 +26,7 @@ public class Oxygen extends Card{
 
     /**
      * .LJVB.LBVwvbvafjv
+     * @return dawjkds dhkdhks
      */
     public String toString(){return "Oxygen(" + value + ")"; }
 

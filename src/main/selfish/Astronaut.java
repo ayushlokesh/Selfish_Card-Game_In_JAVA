@@ -20,6 +20,7 @@ public class Astronaut implements java.io.Serializable {
 
     /**
      * lvha;roehvreovb
+     * @return something
      */
     public String toString(){if(this.isAlive()){return name;} return this.name + " (is dead)"; }
     /**

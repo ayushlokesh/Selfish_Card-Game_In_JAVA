@@ -26,6 +26,7 @@ public class Card implements java.io.Serializable, Comparable<Card> {
 
 /**
  * kjefbawkfb
+ * @return dfhffgfg
  */
     public String toString(){return name;}
 /**
