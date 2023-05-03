@@ -59,6 +59,9 @@ public class GameDeck extends Deck{
         return c;}
 
     public Oxygen[] splitOxygen(Oxygen o){
+        if(o.getValue() == 1){
+            throw new IllegalArgumentException();
+        }
         Oxygen[] x = new Oxygen[2];
         x[1] = this.drawOxygen(1);
         x[0] = this.drawOxygen(1);

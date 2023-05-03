@@ -67,9 +67,12 @@ public abstract class Deck implements java.io.Serializable{
     }
 
     public Card draw(){
+      try{
       Card card1 = ((List<Card>)cards).get(cards.size()-1);
       cards.remove(card1);
       return card1;}
+      catch(IndexOutOfBoundsException e){throw new IllegalStateException();}
+    }
     
     public void shuffle(Random random){
       Collections.shuffle((List<Card>)this.cards, random);

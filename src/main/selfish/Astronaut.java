@@ -112,18 +112,23 @@ public class Astronaut implements java.io.Serializable {
         return (twos + singles + ans);
 }
     public Collection<Card> getTrack(){Collection<Card> c = new ArrayList<Card>(track); return c;}
-    public void hack(Card card){if (card instanceof Oxygen){
+    public void hack(Card card){if (card == null){throw new IllegalArgumentException();}
+        boolean fnd = false;
+        if (card instanceof Oxygen){
                                 for (int i = 0; i < oxygens.size(); i++){
-                                    if (oxygens.get(i).getValue() == ((Oxygen)card).getValue()){oxygens.remove(i); break;}}}
+                                    if (oxygens.get(i).getValue() == ((Oxygen)card).getValue()){fnd = true;oxygens.remove(i); break;}}}
                                 else {for (int i = 0; i < actions.size(); i++){
-                                    if (actions.get(i).equals(card)){actions.remove(i); break;}}}
-                                if (oxygenRemaining() == 0){game.killPlayer(this); actions.clear();}}
-    public Card hack(String card) {Card c = new Card(); if (card.equals("Oxygen(1)") || card.equals("Oxygen(2)")){
+                                    if (actions.get(i).equals(card)){fnd = true;actions.remove(i); break;}}}
+                                if (oxygenRemaining() == 0){game.killPlayer(this); actions.clear();} if(!fnd){throw new IllegalArgumentException();}}
+    public Card hack(String card) {if (card == null){throw new IllegalArgumentException();
+        boolean fnd = false;
+        Card c = new Card(); if (card.equals("Oxygen(1)") || card.equals("Oxygen(2)")){
                                 for (int i = 0; i < oxygens.size(); i++){
-                                    if (oxygens.get(i).toString().equals(card)){c = oxygens.remove(i); break;}}}
+                                    if (oxygens.get(i).toString().equals(card)){ fnd = true;c = oxygens.remove(i); break;}}}
                                 else {for (int i = 0; i < actions.size(); i++){
-                                    if (actions.get(i).toString() == card){c = actions.remove(i); break;}}}
+                                    if (actions.get(i).toString() == card){fnd = true;c = actions.remove(i); break;}}}
                                     if (oxygenRemaining() == 0){actions.clear(); game.killPlayer(this);}
+                                    if (!fnd){throw new IllegalArgumentException();}
                                     return c;
                                 }
     public int hasCard(String card){int num = 0; List<Card> c = getHand();
@@ -132,8 +137,9 @@ public class Astronaut implements java.io.Serializable {
     public boolean hasMeltedEyeballs(){List<Card> action = new ArrayList<Card>(track); if (action.size() == 0){return false;} return (action.get(action.size()-1).toString() == "Solar flare");}
     public boolean hasWon(){return (distanceFromShip() == 0 && isAlive());}
     public boolean isAlive(){if (oxygens.size() == 0){return false;} return true;}
-    public Card laserBlast(){List<Card> c = new ArrayList<Card>(track); Card o = c.remove(c.size()-1); 
+    public Card laserBlast(){try {List<Card> c = new ArrayList<Card>(track); Card o = c.remove(c.size()-1); 
                             track.clear(); track.addAll(c); return o;}
+                        catch(IndexOutOfBoundsException e){throw new IllegalArgumentException();}}
     public int oxygenRemaining(){int num = 0; for (Oxygen o : oxygens){num += o.getValue();} return num;}
     public Card peekAtTrack(){if(track.size() > 0){
                             List<Card> c = new ArrayList<Card>(track); return c.remove(c.size()-1);}
