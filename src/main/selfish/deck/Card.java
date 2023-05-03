@@ -15,7 +15,9 @@ public class Card implements java.io.Serializable, Comparable<Card> {
     /*
     * empty card constructor
     */
-    public Card(){}
+    public Card(){
+        
+    }
 
 /**
  * Returns the name of card
