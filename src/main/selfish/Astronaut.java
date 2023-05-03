@@ -19,14 +19,14 @@ public class Astronaut implements java.io.Serializable {
     private List<Card> actions;
 
     /**
-     * lvha;roehvreovb
-     * @return something
+     * overriden to string method
+     * @return string
      */
     public String toString(){if(this.isAlive()){return name;} return this.name + " (is dead)"; }
     /**
-     * jkbdvabvaorebnreb
-     * @param name .djva;erbhoabhrog
-     * @param game vha;reiherahg;aeo
+     * astronaut constructor
+     * @param name takes name
+     * @param game takes game
      */
     public Astronaut(String name, GameEngine game){
         this.name = name;
@@ -36,39 +36,39 @@ public class Astronaut implements java.io.Serializable {
         track = new ArrayList<Card>();
     }
 /**
- * .dvsavhboareibaoer
- * @param card vh;devhr;hroeha
+ * adds to hand
+ * @param card takes card
  */
     public void addToHand(Card card){if (card instanceof Oxygen){oxygens.add((Oxygen)card);}
                                      else {actions.add(card); }}
 /**
- * cjD:Svh;afhbe
- * @param card dvhweivu beraihg
+ * adds to track
+ * @param card takes card
  */
     public void addToTrack(Card card){track.add(card);}
 /**
- * askvglaivgrbe
- * @return dhvaeow;erghrw
+ * breathes
+ * @return remmaining oxygen
  */
     public int breathe(){for (int i = 0; i < oxygens.size(); i++){
                         if (oxygens.get(i).getValue() == 1){game.getGameDiscard().add(oxygens.remove(i));if(oxygenRemaining() == 0){game.killPlayer(this);}  return oxygenRemaining();}}
                         game.getGameDiscard().add(oxygens.remove(oxygens.size()-1)); oxygens.add(new Oxygen(1));
                         return oxygenRemaining();}
 /**
- * jdsavh;aorhgov
- * @return ahfv;weohvRVH
+ * distance from goal
+ * @return returns distance
  */
     public int distanceFromShip(){return (6 - track.size());}
     /**
-     * lhdv;owehgven
-     * @return ;fhv;ewvbera;ugbhreg
+     * getter for actions
+     * @return list of action cards
      */
     public List<Card> getActions(){List<Card> c = new ArrayList<Card>(actions); Collections.sort(c);return c;}
     /**
-     * V;RVHRO;EIHBVERAOHGRE
-     * @param enumerated AKVG;EWOHGVEROHGOEHG
-     * @param excludeShields CGEwgveugfEGEHV
-     * @return VGgvwgevwevrgbvr
+     * string form of getactions
+     * @param enumerated condition1
+     * @param excludeShields condition2
+     * @return return string
      */
     public String getActionsStr(boolean enumerated, boolean excludeShields){
     String s = "";List<Card> c = getActions(); c.add(new Card("jsdbc", "dgcv"));
@@ -110,15 +110,15 @@ public class Astronaut implements java.io.Serializable {
     if (s.length() > 0 && (s.trim()).charAt(s.length()-2) == ','){res += (s.trim()).substring(0, s.length()-2);}
     return res;}
     /**
-     * .ajdsvbawrvbR
-     * @return ADSVHw;vhrowhv
+     * .getter for cards in hand
+     * @return return the cards
      */
     public List<Card> getHand(){List<Card> c = new ArrayList<Card>();
                                 c.addAll(actions); c.addAll(oxygens); Collections.sort(c);
                                 return c;}
     /**
-     * jvh;WVBHwvoh
-     * @return avh;WEUVOWEGV
+     * string form of gethands
+     * @return string
      */
     public String getHandStr(){List<Card> cards = this.getHand();
         String ans = "";
@@ -152,13 +152,13 @@ public class Astronaut implements java.io.Serializable {
         return (twos + singles + ans);
 }
 /**
- * HCV;ovhb;ROVHr
- * @return svg;WVIEBw;uoregh
+ * getter for track
+ * @return spacecards
  */
     public Collection<Card> getTrack(){Collection<Card> c = new ArrayList<Card>(track); return c;}
     /**
-     * lvh;orhgoHRohgre
-     * @param card .djvbWVHB;Whgero;igh
+     * removes card
+     * @param card card
      */
     public void hack(Card card){if (card == null){throw new IllegalArgumentException();}
         boolean fnd = false;
@@ -170,9 +170,9 @@ public class Astronaut implements java.io.Serializable {
                                 if(!fnd){throw new IllegalArgumentException();}
                                 if (oxygenRemaining() == 0){game.killPlayer(this); actions.clear();} }
     /**
-     * kjsbv;wovweibeoib
-     * @param card vhew;vhw;eghv
-     * @return vdhaw;vuirvhghewg
+     * same as hack
+     * @param card name of card
+     * @return card
      */
     public Card hack(String card) {if (card == null){throw new IllegalArgumentException();}
         boolean fnd = false;
@@ -186,65 +186,65 @@ public class Astronaut implements java.io.Serializable {
                                     return c;
                                 }
 /**
- * ljbf;VH;ohgriehbn
- * @param card dvh;vh;OH
- * @return sdvh;IUVB;RV
+ * has card
+ * @param card card
+ * @return boolean
  */
     public int hasCard(String card){int num = 0; List<Card> c = getHand();
                                     for (Card o : c){if (card.equals(o.toString())){num++;}}      
                                     return num;}
 /**
- * jfhb;WVB;OREV
- * @return JDHC;veug;hrwe
+ * hasMeltedEyeballs
+ * @return boolean
  */
     public boolean hasMeltedEyeballs(){List<Card> action = new ArrayList<Card>(track); if (action.size() == 0){return false;} return (action.get(action.size()-1).toString() == "Solar flare");}
 /**
- * jkcavbabnbn 
- * @return a;vh;HVW;ghwrg
+ * has won 
+ * @return boolean
  */
     public boolean hasWon(){return (distanceFromShip() == 0 && isAlive());}
     /**
-     * lvhaw;rghro;ihgerog
-     * @return avh;WHF;WIRGFR
+     * is alive
+     * @return boolean
      */
     public boolean isAlive(){if (oxygens.size() == 0){return false;} return true;}
     /**
-     * JSDFHB;OWHGw;goh
-     * @return a;vh;EWVHW;gh;rw
+     * laserblast
+     * @return card
      */
     public Card laserBlast(){try {List<Card> c = new ArrayList<Card>(track); Card o = c.remove(c.size()-1); 
                             track.clear(); track.addAll(c); return o;}
                         catch(IndexOutOfBoundsException e){throw new IllegalArgumentException();}}
     /**
-     * HFAO;RHGAROEJB
-     * @return DVH;OURHVN;ORIWHFG
+     * remaining oxygen
+     * @return number
      */
     public int oxygenRemaining(){int num = 0; for (Oxygen o : oxygens){num += o.getValue();} return num;}
     /**
-     * FHWR;OHGWR;IOGH
-     * @return HCw;fhewogoghgW
+     * peekAtTrack
+     * @return card
      */
     public Card peekAtTrack(){if(track.size() > 0){
                             List<Card> c = new ArrayList<Card>(track); return c.remove(c.size()-1);}
                             return null;}
     /**
-     * dljhfawvhgohaerg
-     * @return fhvawr;uhgr
+     * siphon
+     * @return Oxygen
      */
     public Oxygen siphon(){Oxygen o; for (int i = 0; i < oxygens.size(); i++){
         if (oxygens.get(i).getValue() == 1){o = oxygens.remove(i);if(oxygenRemaining() == 0){game.killPlayer(this);}return o;}}
         o = new Oxygen(1); oxygens.remove(oxygens.size()-1); oxygens.add(new Oxygen(1)); return o;}
    /**
-    * aehfoa;rghGI
-    * @return SHV;whgoewhg
+    * steal
+    * @return Card
     */
    public Card steal(){List<Card> c = getHand(); 
         Random r = new Random(); int i = r.nextInt(c.size()); Card o = c.get(i);
     if (o instanceof Oxygen){for (int j = 0; j < oxygens.size(); j++){if(o.equals(oxygens.get(j)))oxygens.remove(j); if(oxygenRemaining() == 0){game.killPlayer(this);}}}
     else {for (int j = 0; j < actions.size(); j++){if(o.equals(actions.get(j)))actions.remove(j);}} return o;}
     /**
-     * lsvhar;ehga;rihgaergh
-     * @param swapee advhalirufhgfegf
+     * swapTrack
+     * @param swapee Astronaut
      */
     public void swapTrack(Astronaut swapee){List<Card> c = new ArrayList<>(this.track); this.track = swapee.track; swapee.track = c;}
 }

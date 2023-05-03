@@ -1,6 +1,6 @@
 package selfish;
 /**
- * Represents Astronaut in the game.
+ * This class handles exceptions
  * 
  * @author Ayush
  * @version 1.0
@@ -8,9 +8,9 @@ package selfish;
  */
 public class GameException extends Exception{
     /**
-     * sjflhkdf,fdj
-     * @param msg efhikdf
-     * @param e fdkfhsjadsddddddddddddddddddddddddddddddddddddddddddddddddddddd
+     * This funtion throws exceptions
+     * @param msg this is error message
+     * @param e this is exception
      */
     public GameException(String msg, Throwable e){
         super(msg, e);

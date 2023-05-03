@@ -21,8 +21,8 @@ public class Card implements java.io.Serializable, Comparable<Card> {
 
 /**
  * Returns the name of card
- * @param name auighilreh;agie
- * @param desc sagfliauerghliuer
+ * @param name takes name of card
+ * @param desc takes description of cards
  */
     public Card(String name, String desc){
         this.name = name;
@@ -31,20 +31,20 @@ public class Card implements java.io.Serializable, Comparable<Card> {
 
 
 /**
- * kjefbawkfb
- * @return dfhffgfg
+ * overriden toString method
+ * @return name of card
  */
     public String toString(){return name;}
 /**
- * kawhf;arehg;o
- * @return akdfiewbfo;HE
+ * getter for description of card
+ * @return description
  */
     public String getDescription(){return description;}
 
 /**
- * kdaefgbearlb
- * @param o sbdfhdkfhdkfhdf
- * @return hzkdjhflodkgjhfg
+ * overriden compareto
+ * @param o takes card instance
+ * @return returns a number
  */
     public int compareTo(Card o) {        
         return this.toString().compareTo(o.toString());

@@ -17,7 +17,7 @@ import selfish.deck.GameDeck;
 import selfish.deck.Oxygen;
 import selfish.deck.SpaceDeck;
 /**
- * Represents Astronaut in the game.
+ * Represents GameEngine in the game.
  * 
  * @author Ayush
  * @version 1.0
@@ -38,11 +38,11 @@ private static final long serialVersionUID = 0;
 
 private GameEngine(){}
 /**
- * kz.fg
- * @param seed kjharejnv
- * @param gameDeck krgslkf
- * @param spaceDeck kjdhf
- * @throws GameException kfhskjf
+ * GameEngine
+ * @param seed seed
+ * @param gameDeck gameDeck filepath
+ * @param spaceDeck spaceDeck filepath
+ * @throws GameException inherits GameException
  */
 public GameEngine(long seed, String gameDeck, String spaceDeck) throws GameException{
     random.setSeed(seed);
@@ -56,30 +56,30 @@ public GameEngine(long seed, String gameDeck, String spaceDeck) throws GameExcep
     this.corpses = new ArrayList<Astronaut>();
 }
 /**
- * hbbcw
- * @param player ksefhwae
- * @return chweafb
+ * addPlayer
+ * @param player String
+ * @return int
  */
 public int addPlayer(String player){if (hasStarted){throw new IllegalStateException("jhbdfhiabv");}
     if(activePlayers.size() == 5){throw new IllegalStateException("jhbdfhiabv");}
     activePlayers.add(new Astronaut(player, this));
     return getFullPlayerCount();}
 /**
- * 
- * @return wiefhaweiufh
+ * endsTurn
+ * @return number of active player
  */
 public int endTurn(){if(currentPlayer.isAlive()){activePlayers.add(currentPlayer);}
                     // else{killPlayer(currentPlayer);}
                     if(!gameOver()){currentPlayer = null;}
                     return activePlayers.size();}
 /**
- * vbdfvbn/
- * @return Jfhkurfhe
+ * isgameOver
+ * @return boolean
  */
 public boolean gameOver(){if(currentPlayer == null){return false;} return (activePlayers.size() == 0 || currentPlayer.hasWon());}
 /**
- * jdvsvkjsdvn
- * @return kvdbdb
+ * getter for all player
+ * @return list of astronauts
  */
 public List<Astronaut> getAllPlayers(){
     List<Astronaut> p = new ArrayList<Astronaut>();
@@ -89,53 +89,53 @@ public List<Astronaut> getAllPlayers(){
     } if (currentPlayer != null && currentPlayer.isAlive()){Astronaut a = currentPlayer; p.add(a);}
     return p;}
 /**
- * fgser.b
- * @return skfhergh
+ * getsCurrentPlayer
+ * @return currentPlayer
  */
 public Astronaut getCurrentPlayer(){return currentPlayer;}
 /**
- * ,sadfgear
- * @return khfarwbgare
+ * getFullPlayerCount
+ * @return number of total players
  */
 public int getFullPlayerCount(){return getAllPlayers().size();}
 /**
- * b,fawefeghreg
- * @return khfouhergoehr
+ * getsGameDeck
+ * @return GameDeck
  */
 public GameDeck getGameDeck(){return gameDeck;}
 /**
- * ak.fbakr
- * @return sfegwavgarh
+ * getsGameDiscard
+ * @return gameDiscard
  */
 public GameDeck getGameDiscard(){return gameDiscard;}
 /**
- * a.kjefhaerf
- * @return vhwahflh
+ * getSpaceDeck
+ * @return spaceDeck
  */
 public SpaceDeck getSpaceDeck(){return spaceDeck;}
 /**
- * fbrgbfrbv
- * @return .ca.evaev
+ * getsSpaceDiscard
+ * @return spaceDiscard
  */
 public SpaceDeck getSpaceDiscard(){return spaceDiscard;}
 /**
- * bbfgbfg
- * @return bdbsbnbfb
+ * getsWinner
+ * @return Astronaut
  */
 public Astronaut getWinner(){Astronaut p = null; for(Astronaut o : activePlayers){if(o.hasWon()){p = o;}}
     return p;}
 /**
- * fgaerifh
- * @param corpse dhawefheaw
+ * killsPlayer
+ * @param corpse player to be killed
  */
 public void killPlayer(Astronaut corpse){corpses.add(corpse);}
 
 
 /**
- * kdjshmdhmhskjdSDBfhjdfjfdh
- * @param path sfbmsbfhsbfjsf  
+ * loads state
+ * @param path path  
  * @return fvjsfgsgkf 
- * @throws GameException bfamsjhcdbsjkdksbdksdjbksjhkdsafh
+ * @throws GameException throws GameException
  */
 public static GameEngine loadState(String path) throws GameException { 
     GameEngine p = null;
@@ -152,14 +152,14 @@ public static GameEngine loadState(String path) throws GameException {
     }
 }
 /**
- * sdufhariefg
- * @param deck1 so;fuhaweir;fh
- * @param deck2 slidfharuief
+ * merge deck and discard pile
+ * @param deck1 deck1
+ * @param deck2 deck2
  */
 public void mergeDecks(Deck deck1, Deck deck2){while(deck2.size() > 0){deck1.add(deck2.draw());}}
 /**
- * slidfharuief
- * @param path slidfharuief
+ * savesState
+ * @param path path
  */
 public void saveState(String path){
     try {
@@ -173,9 +173,9 @@ public void saveState(String path){
     }
 }
 /**
- * cj;odsvj;oidv DV 
- * @param dbl ;vdhwov
- * @return ;dvhpduvhwBHV[]
+ * splits double Oxygen 
+ * @param dbl double Oxygen
+ * @return oxygen array
  */
 public Oxygen[] splitOxygen(Oxygen dbl){if ((this.gameDiscard.size() == 0 && this.gameDeck.size() == 1)
 || (this.gameDiscard.size() == 1 && this.gameDeck.size() == 0)) {
@@ -197,7 +197,7 @@ throw new IllegalStateException();
     if(count < 2){throw new IllegalStateException("JAIVER");}
     return null;}
 /**
- * slidfharuief
+ * startsGame
  */
 public void startGame(){if (hasStarted || activePlayers.size() == 1 || activePlayers.size() == 6) {
     throw new IllegalStateException();}
@@ -206,7 +206,7 @@ public void startGame(){if (hasStarted || activePlayers.size() == 1 || activePla
      for (int i = 0; i < 4; i++){for (Astronaut a : activePlayers){a.addToHand(gameDeck.draw());}}
     hasStarted = true;}
 /**
- * bcgashbv
+ * startsTurn
  */
 public void startTurn(){if (activePlayers.size() == 0 || hasStarted == false || currentPlayer != null || getWinner() != null) {
     throw new IllegalStateException();}
@@ -214,9 +214,9 @@ public void startTurn(){if (activePlayers.size() == 0 || hasStarted == false || 
         currentPlayer = a.remove(0);
     activePlayers.clear();activePlayers.addAll(a); }}
 /**
- * ksjfhariehf
- * @param traveller zdlfhariufh
- * @return kahdgfilawergfui
+ * travels
+ * @param traveller Astronaut traveller
+ * @return spaceCard
  */
 public Card travel(Astronaut traveller){
     if (traveller.oxygenRemaining() <= 1) {

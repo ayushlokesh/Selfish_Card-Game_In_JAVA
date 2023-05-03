@@ -14,37 +14,37 @@ import selfish.GameException;
  * @since 1.0
  */
 public class SpaceDeck extends Deck{
-/**UFHeovngrvjnewiv */
+/** A constant.  */
     public static final String ASTEROID_FIELD = "Asteroid field";
-/**UFHeovngrvjnewiv */
+/** A constant.  */
     public static final String BLANK_SPACE = "Blank space";
-/**UFHeovngrvjnewiv */
+/** A constant.  */
     public static final String COSMIC_RADIATION = "Cosmic radiation";
-/**UFHeovngrvjnewiv */
+/** A constant.  */
     public static final String GRAVITATIONAL_ANOMALY = "Gravitation anomaly";
-/**UFHeovngrvjnewiv */
+/** A constant.  */
     public static final String HYPERSPACE = "Hyperspace";
-/**UFHeovngrvjnewiv */
+/** A constant.  */
     public static final String METEOROID = "Meteoroid";
-/**MYSTERIOUS NEBULA UFHeovngrvjnewiv */
+/** A constant. */
     public static final String MYSTERIOUS_NEBULA = "Mysterious nebula";
-/**SOLAR FLARE UFHeovngrvjnewiv */
+/**  A constant.  */
     public static final String SOLAR_FLARE = "Solar flare";
-/**USEFUL JUNK UFHeovngrvjnewiv */
+/**  A constant.  */
     public static final String USEFUL_JUNK = "Useful junk";
-/**WORMHOLE  UFHeovngrvjnewiv */
+/** A constant. */
     public static final String WORMHOLE = "Wormhole";
     final private static long serialVersionUID = 0;
 /**
- * lvdha;hvberonvr
+ * empty constructor
  */
     public SpaceDeck(){
         
     }
     /**
-     * lvdshalbhvaerg
-     * @param s ;vh;waVHR;EO
-     * @throws GameException ZDSFHALWIRV;OEWRBGO;EF
+     * spacedeck constructor
+     * @param s takes file path
+     * @throws GameException inherits gameexception
      */
     public SpaceDeck(String s) throws GameException{
         try{

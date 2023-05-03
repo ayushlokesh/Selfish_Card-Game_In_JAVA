@@ -7,7 +7,7 @@ import java.util.Random;
 import selfish.GameException;
 
 /**
- * Represents Astronaut in the game.
+ * Represents Deck in the game.
  * 
  * @author Ayush
  * @version 1.0
@@ -18,13 +18,13 @@ public abstract class Deck implements java.io.Serializable{
     private Collection<Card> cards = new ArrayList<Card>();
     final private static long serialVersionUID = 0;
    /**
-    * lwerhg;roehgqr
+    * empty constructor
     */
     protected Deck(){}
 /**
- * fha;rfirehgq
- * @param str ehflwrhg;orqh
- * @return ksdhfaiwevb;oh
+ * this is used to read cards
+ * @param str line from file
+ * @return card from line
  */
     protected static Card[] stringToCards(String str){
       String name = "", desc = "", data = "";            
@@ -42,10 +42,10 @@ public abstract class Deck implements java.io.Serializable{
       }
       return cards;}
 /**
- * fjhwqelgblerhg
- * @param path kwlhf;oweago;ew
- * @return klhvwofow;efhbvoew
- * @throws GameException a,vbcwigvbw;eugvoue
+ * loads cards in deck
+ * @param path file path for cards
+ * @return filled deck
+ * @throws GameException gives error
  */
     protected static List<Card> loadCards(String path) throws GameException{
         
@@ -74,17 +74,17 @@ public abstract class Deck implements java.io.Serializable{
         return c;
     }
 /**
- * hdawehfv;owehv;oewhv
- * @param card a;ovhcw;vh;WVH
- * @return AVHWE;VHE;WOGVEW
+ * adds card to deck
+ * @param card takes card
+ * @return return deck size
  */
     public int add(Card card){
       cards.add(card);
       return cards.size();}
   /**
-   * KVBWavbrovbeV/lbnfdv
-   * @param cards zvlsdivlGFVBLEIGVW
-   * @return KSVDHALSUGFV;gfwe
+   * add a list of cards
+   * @param cards takes a list of cards
+   * @return deck size
    */
     protected int add(List<Card> cards){
       if (cards == null){return 0;}
@@ -92,8 +92,8 @@ public abstract class Deck implements java.io.Serializable{
       return this.cards.size();
     }
 /**
- * kafgbawiebveawr
- * @return vc;FVGWGVEEWRGV
+ * draws card
+ * @return drawn card
  */
     public Card draw(){
       try{
@@ -103,20 +103,20 @@ public abstract class Deck implements java.io.Serializable{
       catch(IndexOutOfBoundsException e){throw new IllegalStateException();}
     }
 /**
- * LVHA;HV;ORHBVrvLRENV
- * @param random VDJAVBHAEVBAER.
+ * shuffles deck
+ * @param random random object
  */
     public void shuffle(Random random){
       Collections.shuffle((List<Card>)this.cards, random);
     }
 /**
- * anelvhew;arhbvroev
- * @return ;ashc;vb;rbv;arev
+ * size of deck
+ * @return return size of deck
  */
     public int size(){return cards.size();}
 /**
- * sv;aofhv;aoerhberb
- * @param card z;vha;ovbh;rohbO;R
+ * removes a card from deck
+ * @param card take card to be removed
  */
     public void remove(Card card){
       for (Card c : cards){

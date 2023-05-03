@@ -20,37 +20,37 @@ public class GameDeck extends Deck{
     public static final String HACK_SUIT = "Hack suit";
 /** A constant. */
      public static final String HOLE_IN_SUIT = "Hole in suit";
-/**algherilghqi */    
+/** A constant.  */    
      public static final String LASER_BLAST = "Laser blast";
-    /**algherilghqi */
+    /** A constant.  */
      public static final String OXYGEN_1 = "Oxygen(1)";
-    /**algherilghqi */
+    /** A constant.  */
      public static final String OXYGEN_2 = "Oxygen(2)";
-    /**algherilghqi */
+    /** A constant.  */
      public static final String OXYGEN_SIPHON = "Oxygen siphon";
-    /**algherilghqi */
+    /** A constant.  */
      public static final String ROCKET_BOOSTER = "Rocket booster";
-    /**algherilghqi */
+    /** A constant.  */
      public static final String SHIELD = "Shield";
-    /**algherilghqi */
+    /** A constant.  */
      public static final String TETHER = "Tether";
-    /**algherilghqi */
+    /** A constant.  */
      public static final String TRACTOR_BEAM = "Tractor beam";
-    /**algherilghqi */
+    /** A constant.  */
     public static final String OXYGEN = "Oxygen";
-    /**algherilghqi */
+    /** A constant.  */
     final private static long serialVersionUID = 0;
 
 /**
- * ksdbvcksav
+ * empty constructor
  */
     public GameDeck(){
         
     }
 /**
- * asdfhgseilrugfai
- * @param s kadshflarhzdhvg
- * @throws GameException aslufwEIUF
+ * gamedeck constructor
+ * @param s takes string
+ * @throws GameException inherits gamexception
  */
     public GameDeck(String s) throws GameException{
         try{
@@ -60,9 +60,9 @@ public class GameDeck extends Deck{
         for (int i = 0; i<38; i++){this.add(new Oxygen(1));}
     }
 /**
- * dsvhelrhg;oerhg
- * @param i ;hfawuiehvqr;ehv
- * @return s;fuhqreifgqer;if
+ * draws oxygen card from deck
+ * @param i take oxygen number
+ * @return returns oxygen card
  */
     public Oxygen drawOxygen(int i){ if (this.size() == 0){throw new IllegalStateException("JHVBSV");}
         Oxygen c = new Oxygen(i);
@@ -79,9 +79,9 @@ public class GameDeck extends Deck{
              if(!fnd){throw new IllegalStateException("HACK_SUIT");}
         return c;}
 /**
- * ;fihweg;uhqre;og
- * @param o ufhwquogv;wqeohf
- * @return ;fhverpgfvweohgvo
+ * splits double oxygen into 2 single oxygen
+ * @param o double oxygen
+ * @return returns array of 2 single oxygens
  */
     public Oxygen[] splitOxygen(Oxygen o){
         if(o.getValue() == 1){
