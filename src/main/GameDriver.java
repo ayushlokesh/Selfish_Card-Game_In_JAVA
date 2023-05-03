@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 
 import selfish.GameEngine;
+import selfish.GameException;
 import selfish.deck.GameDeck;
 import selfish.deck.SpaceDeck;
 
@@ -20,7 +21,7 @@ public class GameDriver {
     public GameDriver() {
     }
 
-    public static void main(String[] args)  {
+    public static void main(String[] args)  throws GameException{
         try {
             File myObj = new File("../../io/art.txt");
             Scanner myReader = new Scanner(myObj);  
