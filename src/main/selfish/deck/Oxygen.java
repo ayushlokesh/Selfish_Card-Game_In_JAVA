@@ -1,5 +1,11 @@
 package selfish.deck;
-
+/**
+ * Represents Astronaut in the game.
+ * 
+ * @author Ayush
+ * @version 1.0
+ * @since 1.0
+ */
 public class Oxygen extends Card{
 
     private int value;

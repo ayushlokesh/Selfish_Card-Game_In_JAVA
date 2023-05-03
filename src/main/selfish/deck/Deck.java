@@ -6,7 +6,13 @@ import java.util.Random;
 
 import selfish.GameException;
 
-
+/**
+ * Represents Astronaut in the game.
+ * 
+ * @author Ayush
+ * @version 1.0
+ * @since 1.0
+ */
 public abstract class Deck implements java.io.Serializable{
     
     private Collection<Card> cards = new ArrayList<Card>();

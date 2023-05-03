@@ -16,7 +16,13 @@ import selfish.deck.Deck;
 import selfish.deck.GameDeck;
 import selfish.deck.Oxygen;
 import selfish.deck.SpaceDeck;
-
+/**
+ * Represents Astronaut in the game.
+ * 
+ * @author Ayush
+ * @version 1.0
+ * @since 1.0
+ */
 public class GameEngine implements java.io.Serializable{
 
 private Collection<Astronaut> activePlayers; 

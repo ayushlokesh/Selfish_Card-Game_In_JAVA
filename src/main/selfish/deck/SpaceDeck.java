@@ -6,7 +6,13 @@ import java.util.*;
 import java.util.List;
 
 import selfish.GameException;
-
+/**
+ * Represents Astronaut in the game.
+ * 
+ * @author Ayush
+ * @version 1.0
+ * @since 1.0
+ */
 public class SpaceDeck extends Deck{
     final public static String ASTEROID_FIELD = "Asteroid field";
     final public static String BLANK_SPACE = "Blank space";
