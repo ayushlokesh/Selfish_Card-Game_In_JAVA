@@ -3,6 +3,13 @@ import java.util.*;
 
 import selfish.deck.*;
 
+/**
+ * Represents Astronaut in the game.
+ * 
+ * @author Ayush
+ * @version 1.0
+ * @since 1.0
+ */
 public class Astronaut implements java.io.Serializable {
     private String name;
     private GameEngine game;

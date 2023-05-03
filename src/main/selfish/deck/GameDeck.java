@@ -3,9 +3,19 @@ package selfish.deck;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameDeck extends Deck{
+/**
+ * Represents the Game Deck that actions cards.
+ * 
+ * @author Ayush
+ * @version 1.0
+ * @since 1.0
+ * 
+ */
 
-    final public static String HACK_SUIT = "Hack suit";
+public class GameDeck extends Deck{
+/** A constant. */
+    public static final String HACK_SUIT = "Hack suit";
+/** A constant. */
     final public static String HOLE_IN_SUIT = "Hole in suit";
     final public static String LASER_BLAST = "Laser blast";
     final public static String OXYGEN_1 = "Oxygen(1)";
@@ -20,7 +30,7 @@ public class GameDeck extends Deck{
 
 
     public GameDeck(){
-        add(loadCards(""));
+        
     }
 
     public GameDeck(String s){
