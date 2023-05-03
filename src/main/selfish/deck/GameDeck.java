@@ -64,18 +64,19 @@ public class GameDeck extends Deck{
  * @param i ;hfawuiehvqr;ehv
  * @return s;fuhqreifgqer;if
  */
-    public Oxygen drawOxygen(int i){
+    public Oxygen drawOxygen(int i){ if (this.size() == 0){throw new IllegalStateException("JHVBSV");}
         Oxygen c = new Oxygen(i);
-       
+       boolean fnd = false;
         List<Card> a = new ArrayList<Card>();
 
         for (int j = 0; j < this.size(); j++){a.add(this.draw());
 
              if (a.get(a.size()-1) instanceof Oxygen && ((Oxygen)a.get(a.size()-1)).getValue() == i)
             
-             {c = (Oxygen)a.get(a.size()-1); a.remove(j); break;}}
+             {fnd = true; c = (Oxygen)a.get(a.size()-1); a.remove(j); break;}}
         
              for (int j = a.size()-1; j >= 0; j--){this.add(a.remove(j));}
+             if(!fnd){throw new IllegalStateException("HACK_SUIT");}
         return c;}
 /**
  * ;fihweg;uhqre;og
