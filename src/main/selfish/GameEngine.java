@@ -56,19 +56,31 @@ public GameEngine(long seed, String gameDeck, String spaceDeck) throws GameExcep
     this.corpses = new ArrayList<Astronaut>();
 }
 /**
- * 
- * @param player
- * @return
+ * hbbcw
+ * @param player ksefhwae
+ * @return chweafb
  */
 public int addPlayer(String player){if (hasStarted){throw new IllegalStateException("jhbdfhiabv");}
     if(activePlayers.size() == 5){throw new IllegalStateException("jhbdfhiabv");}
     activePlayers.add(new Astronaut(player, this));
     return getFullPlayerCount();}
+/**
+ * 
+ * @return wiefhaweiufh
+ */
 public int endTurn(){if(currentPlayer.isAlive()){activePlayers.add(currentPlayer);}
                     // else{killPlayer(currentPlayer);}
                     if(!gameOver()){currentPlayer = null;}
                     return activePlayers.size();}
+/**
+ * vbdfvbn/
+ * @return Jfhkurfhe
+ */
 public boolean gameOver(){if(currentPlayer == null){return false;} return (activePlayers.size() == 0 || currentPlayer.hasWon());}
+/**
+ * jdvsvkjsdvn
+ * @return kvdbdb
+ */
 public List<Astronaut> getAllPlayers(){
     List<Astronaut> p = new ArrayList<Astronaut>();
     for (Astronaut a : activePlayers){p.add(a);}
