@@ -11,7 +11,7 @@ public class Astronaut implements java.io.Serializable {
     private List<Oxygen> oxygens;
     private List<Card> actions;
 
-    @ Override
+    
     public String toString(){if(this.isAlive()){return name;} return this.name + " (is dead)"; }
     
     public Astronaut(String name, GameEngine game){
