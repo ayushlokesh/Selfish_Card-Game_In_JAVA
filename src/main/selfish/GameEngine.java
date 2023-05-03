@@ -42,7 +42,8 @@ public GameEngine(long seed, String gameDeck, String spaceDeck) throws GameExcep
     this.activePlayers = new ArrayList<Astronaut>();
     this.corpses = new ArrayList<Astronaut>();
 }
-public int addPlayer(String player){
+public int addPlayer(String player){if (hasStarted){throw new IllegalStateException("jhbdfhiabv");}
+    if(activePlayers.size() == 5){throw new IllegalStateException("jhbdfhiabv");}
     activePlayers.add(new Astronaut(player, this));
     return getFullPlayerCount();}
 public int endTurn(){if(currentPlayer.isAlive()){activePlayers.add(currentPlayer);}
@@ -66,7 +67,7 @@ public SpaceDeck getSpaceDiscard(){return spaceDiscard;}
 public Astronaut getWinner(){Astronaut p = null; for(Astronaut o : activePlayers){if(o.hasWon()){p = o;}}
     return p;}
 public void killPlayer(Astronaut corpse){corpses.add(corpse);}
-public static GameEngine loadState(String path){ GameEngine p = null;
+public static GameEngine loadState(String path) throws GameException{ GameEngine p = null;
     try {
         FileInputStream fileIn = new FileInputStream(path);
         ObjectInputStream objectIn = new ObjectInputStream(fileIn);
@@ -75,6 +76,7 @@ public static GameEngine loadState(String path){ GameEngine p = null;
         fileIn.close();
     } catch (Exception e) {
         System.out.println("An error occurred: " );
+        throw new GameException(path, e);
     }
     return p;}
 public void mergeDecks(Deck deck1, Deck deck2){while(deck2.size() > 0){deck1.add(deck2.draw());}}
@@ -89,7 +91,11 @@ public void saveState(String path){
         System.out.println("An error occurred: ");
     }
 }
-public Oxygen[] splitOxygen(Oxygen dbl){List<Card> c = new ArrayList<Card>(); int count = 0; Oxygen[] o = new Oxygen[2];
+public Oxygen[] splitOxygen(Oxygen dbl){if ((this.gameDiscard.size() == 0 && this.gameDeck.size() == 1)
+|| (this.gameDiscard.size() == 1 && this.gameDeck.size() == 0)) {
+throw new IllegalStateException();
+}
+    List<Card> c = new ArrayList<Card>(); int count = 0; Oxygen[] o = new Oxygen[2];
     while(count < 2 && gameDeck.size() > 0){
         c.add(gameDeck.draw()); 
         if (c.get(c.size()-1).toString().equals("Oxygen(1)")){count++; 
@@ -103,13 +109,19 @@ public Oxygen[] splitOxygen(Oxygen dbl){List<Card> c = new ArrayList<Card>(); in
     for (int i = c.size()-1; i >= 0; i--){gameDiscard.add(c.remove(i));}
         if (count == 2){gameDeck.remove(dbl); gameDiscard.add(dbl); return o;}
     return null;}
-public void startGame(){{for (Astronaut a : activePlayers){a.addToHand(gameDeck.drawOxygen(2));
+public void startGame(){if (hasStarted || activePlayers.size() == 1 || activePlayers.size() == 6) {
+    throw new IllegalStateException();}
+    {for (Astronaut a : activePlayers){a.addToHand(gameDeck.drawOxygen(2));
      a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1)); a.addToHand(gameDeck.drawOxygen(1));}}
      for (int i = 0; i < 4; i++){for (Astronaut a : activePlayers){a.addToHand(gameDeck.draw());}}
     hasStarted = true;}
-public void startTurn(){
+public void startTurn(){if (activePlayers.size() == 0 || hasStarted == false || currentPlayer != null || getWinner() != null) {
+    throw new IllegalStateException();}
     if(hasStarted && currentPlayer == null){List<Astronaut> a = new ArrayList<Astronaut>(activePlayers); 
         currentPlayer = a.remove(0);
     activePlayers.clear();activePlayers.addAll(a); }}
-public Card travel(Astronaut traveller){traveller.hack("Oxygen(2)"); Card o = spaceDeck.draw(); if(!(o.toString().equals("Gravitational anomaly"))){traveller.addToTrack(o);}return o;}
+public Card travel(Astronaut traveller){
+    if (traveller.oxygenRemaining() <= 1) {
+        throw new IllegalStateException();}
+        traveller.hack("Oxygen(2)"); Card o = spaceDeck.draw(); if(!(o.toString().equals("Gravitational anomaly"))){traveller.addToTrack(o);}return o;}
 }
