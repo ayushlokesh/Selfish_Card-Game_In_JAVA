@@ -50,7 +50,7 @@ public abstract class Deck implements java.io.Serializable{
             myReader.close();
           } catch (FileNotFoundException e) {
             throw new GameException("File not Found", new FileNotFoundException());
-            System.out.println("File not found.");
+            
            
           } 
         return c;

@@ -120,7 +120,7 @@ public class Astronaut implements java.io.Serializable {
                                 else {for (int i = 0; i < actions.size(); i++){
                                     if (actions.get(i).equals(card)){fnd = true;actions.remove(i); break;}}}
                                 if (oxygenRemaining() == 0){game.killPlayer(this); actions.clear();} if(!fnd){throw new IllegalArgumentException();}}
-    public Card hack(String card) {if (card == null){throw new IllegalArgumentException();
+    public Card hack(String card) {if (card == null){throw new IllegalArgumentException();}
         boolean fnd = false;
         Card c = new Card(); if (card.equals("Oxygen(1)") || card.equals("Oxygen(2)")){
                                 for (int i = 0; i < oxygens.size(); i++){
