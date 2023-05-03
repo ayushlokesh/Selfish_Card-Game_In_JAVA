@@ -11,7 +11,7 @@ public class Card implements java.io.Serializable, Comparable<Card> {
     private String description;
     private static final long serialVersionUID = 0;
 /**
- * airlha;eughaeor;g
+ * Returns the name of card
  * @param name auighilreh;agie
  * @param desc sagfliauerghliuer
  */
@@ -20,7 +20,7 @@ public class Card implements java.io.Serializable, Comparable<Card> {
         this.description = desc;
     }
 /*
- * awehf;uoerhg
+ * empty card constructor
  */
     public Card(){}
 
