@@ -25,11 +25,17 @@ public class SpaceDeck extends Deck{
     final public static String USEFUL_JUNK = "Useful junk";
     final public static String WORMHOLE = "Wormhole";
     final private static long serialVersionUID = 0;
-
+/**
+ * lvdha;hvberonvr
+ */
     public SpaceDeck(){
         
     }
-    
+    /**
+     * lvdshalbhvaerg
+     * @param s ;vh;waVHR;EO
+     * @throws GameException ZDSFHALWIRV;OEWRBGO;EF
+     */
     public SpaceDeck(String s) throws GameException{
         try{
             add(loadCards(s));}

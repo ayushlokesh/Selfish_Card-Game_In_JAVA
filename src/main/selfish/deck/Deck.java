@@ -17,8 +17,15 @@ public abstract class Deck implements java.io.Serializable{
     
     private Collection<Card> cards = new ArrayList<Card>();
     final private static long serialVersionUID = 0;
+   /**
+    * lwerhg;roehgqr
+    */
     protected Deck(){}
-
+/**
+ * fha;rfirehgq
+ * @param str ehflwrhg;orqh
+ * @return ksdhfaiwevb;oh
+ */
     protected static Card[] stringToCards(String str){
       String name = "", desc = "", data = "";            
       int i = 0;
@@ -34,7 +41,12 @@ public abstract class Deck implements java.io.Serializable{
       cards[j] = new Card(name, desc);
       }
       return cards;}
-
+/**
+ * fjhwqelgblerhg
+ * @param path kwlhf;oweago;ew
+ * @return klhvwofow;efhbvoew
+ * @throws GameException a,vbcwigvbw;eugvoue
+ */
     protected static List<Card> loadCards(String path) throws GameException{
         
         List<Card> c = new ArrayList<Card>();
@@ -61,17 +73,28 @@ public abstract class Deck implements java.io.Serializable{
           } 
         return c;
     }
-
+/**
+ * hdawehfv;owehv;oewhv
+ * @param card a;ovhcw;vh;WVH
+ * @return AVHWE;VHE;WOGVEW
+ */
     public int add(Card card){
       cards.add(card);
       return cards.size();}
-    
+  /**
+   * KVBWavbrovbeV/lbnfdv
+   * @param cards zvlsdivlGFVBLEIGVW
+   * @return KSVDHALSUGFV;gfwe
+   */
     protected int add(List<Card> cards){
       if (cards == null){return 0;}
       for (Card card : cards){this.cards.add(card);}
       return this.cards.size();
     }
-
+/**
+ * kafgbawiebveawr
+ * @return vc;FVGWGVEEWRGV
+ */
     public Card draw(){
       try{
       Card card1 = ((List<Card>)cards).get(cards.size()-1);
@@ -79,13 +102,22 @@ public abstract class Deck implements java.io.Serializable{
       return card1;}
       catch(IndexOutOfBoundsException e){throw new IllegalStateException();}
     }
-    
+/**
+ * LVHA;HV;ORHBVrvLRENV
+ * @param random VDJAVBHAEVBAER.
+ */
     public void shuffle(Random random){
       Collections.shuffle((List<Card>)this.cards, random);
     }
-    
+/**
+ * anelvhew;arhbvroev
+ * @return ;ashc;vb;rbv;arev
+ */
     public int size(){return cards.size();}
-    
+/**
+ * sv;aofhv;aoerhberb
+ * @param card z;vha;ovbh;rohbO;R
+ */
     public void remove(Card card){
       for (Card c : cards){
         if (c == card){cards.remove(card); break;}

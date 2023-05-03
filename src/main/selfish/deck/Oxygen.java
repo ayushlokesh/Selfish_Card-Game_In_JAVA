@@ -11,14 +11,22 @@ public class Oxygen extends Card{
     private int value;
 
     final private static long serialVersionUID = 0;
-
+/**
+ * HVSA;OIHVAREPJVGAER
+ * @param i ;VH;AOWHVORHV;ORA
+ */
     public Oxygen(int i){
         this.value = i;
     }
-
+/**
+ * ;SHvoarhgv;oerhver
+ * @return ;dsfvhw;ovhr;ohvre
+ */
     public int getValue(){return value;}
 
-    @ Override
+    /**
+     * .LJVB.LBVwvbvafjv
+     */
     public String toString(){return "Oxygen(" + value + ")"; }
 
     // @ Override

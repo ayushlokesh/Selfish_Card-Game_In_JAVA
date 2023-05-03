@@ -18,9 +18,15 @@ public class Astronaut implements java.io.Serializable {
     private List<Oxygen> oxygens;
     private List<Card> actions;
 
-    
+    /**
+     * lvha;roehvreovb
+     */
     public String toString(){if(this.isAlive()){return name;} return this.name + " (is dead)"; }
-    
+    /**
+     * jkbdvabvaorebnreb
+     * @param name .djva;erbhoabhrog
+     * @param game vha;reiherahg;aeo
+     */
     public Astronaut(String name, GameEngine game){
         this.name = name;
         this.game = game;
@@ -28,16 +34,41 @@ public class Astronaut implements java.io.Serializable {
         actions = new ArrayList<Card>();
         track = new ArrayList<Card>();
     }
-
+/**
+ * .dvsavhboareibaoer
+ * @param card vh;devhr;hroeha
+ */
     public void addToHand(Card card){if (card instanceof Oxygen){oxygens.add((Oxygen)card);}
                                      else {actions.add(card); }}
+/**
+ * cjD:Svh;afhbe
+ * @param card dvhweivu beraihg
+ */
     public void addToTrack(Card card){track.add(card);}
+/**
+ * askvglaivgrbe
+ * @return dhvaeow;erghrw
+ */
     public int breathe(){for (int i = 0; i < oxygens.size(); i++){
                         if (oxygens.get(i).getValue() == 1){game.getGameDiscard().add(oxygens.remove(i));if(oxygenRemaining() == 0){game.killPlayer(this);}  return oxygenRemaining();}}
                         game.getGameDiscard().add(oxygens.remove(oxygens.size()-1)); oxygens.add(new Oxygen(1));
                         return oxygenRemaining();}
+/**
+ * jdsavh;aorhgov
+ * @return ahfv;weohvRVH
+ */
     public int distanceFromShip(){return (6 - track.size());}
+    /**
+     * lhdv;owehgven
+     * @return ;fhv;ewvbera;ugbhreg
+     */
     public List<Card> getActions(){List<Card> c = new ArrayList<Card>(actions); Collections.sort(c);return c;}
+    /**
+     * V;RVHRO;EIHBVERAOHGRE
+     * @param enumerated AKVG;EWOHGVEROHGOEHG
+     * @param excludeShields CGEwgveugfEGEHV
+     * @return VGgvwgevwevrgbvr
+     */
     public String getActionsStr(boolean enumerated, boolean excludeShields){
     String s = "";List<Card> c = getActions(); c.add(new Card("jsdbc", "dgcv"));
     String a = "ABCDEFGHIJKLMNOPQ";int count = 0; String s1 = c.get(0).toString();
@@ -77,6 +108,10 @@ public class Astronaut implements java.io.Serializable {
     String res = "";
     if (s.length() > 0 && (s.trim()).charAt(s.length()-2) == ','){res += (s.trim()).substring(0, s.length()-2);}
     return res;}
+    /**
+     * .ajdsvbawrvbR
+     * @return ADSVHw;vhrowhv
+     */
     public List<Card> getHand(){List<Card> c = new ArrayList<Card>();
                                 c.addAll(actions); c.addAll(oxygens); Collections.sort(c);
                                 return c;}
