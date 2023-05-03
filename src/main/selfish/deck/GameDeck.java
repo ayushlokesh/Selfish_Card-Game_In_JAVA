@@ -19,25 +19,25 @@ public class GameDeck extends Deck{
 /** A constant. */
     public static final String HACK_SUIT = "Hack suit";
 /** A constant. */
-    final public static String HOLE_IN_SUIT = "Hole in suit";
+     public static final String HOLE_IN_SUIT = "Hole in suit";
 /**algherilghqi */    
-    final public static String LASER_BLAST = "Laser blast";
+     public static final String LASER_BLAST = "Laser blast";
     /**algherilghqi */
-    final public static String OXYGEN_1 = "Oxygen(1)";
+     public static final String OXYGEN_1 = "Oxygen(1)";
     /**algherilghqi */
-    final public static String OXYGEN_2 = "Oxygen(2)";
+     public static final String OXYGEN_2 = "Oxygen(2)";
     /**algherilghqi */
-    final public static String OXYGEN_SIPHON = "Oxygen siphon";
+     public static final String OXYGEN_SIPHON = "Oxygen siphon";
     /**algherilghqi */
-    final public static String ROCKET_BOOSTER = "Rocket booster";
+     public static final String ROCKET_BOOSTER = "Rocket booster";
     /**algherilghqi */
-    final public static String SHIELD = "Shield";
+     public static final String SHIELD = "Shield";
     /**algherilghqi */
-    final public static String TETHER = "Tether";
+     public static final String TETHER = "Tether";
     /**algherilghqi */
-    final public static String TRACTOR_BEAM = "Tractor beam";
+     public static final String TRACTOR_BEAM = "Tractor beam";
     /**algherilghqi */
-    final public static String OXYGEN = "Oxygen";
+    public static final String OXYGEN = "Oxygen";
     /**algherilghqi */
     final private static long serialVersionUID = 0;
 
