@@ -16,7 +16,7 @@ public class Card implements java.io.Serializable, Comparable<Card> {
     * empty card constructor
     */
     public Card(){
-        
+
     }
 
 /**
@@ -43,6 +43,7 @@ public class Card implements java.io.Serializable, Comparable<Card> {
 
 /**
  * kdaefgbearlb
+ * @return hzkdjhflodkgjhfg
  */
     public int compareTo(Card o) {        
         return this.toString().compareTo(o.toString());
