@@ -129,6 +129,8 @@ public Astronaut getWinner(){Astronaut p = null; for(Astronaut o : activePlayers
  * @param corpse dhawefheaw
  */
 public void killPlayer(Astronaut corpse){corpses.add(corpse);}
+
+
 /**
  * aydvgewiu;gh
  * @param path loadstate gameexception ICGFVH 
