@@ -169,9 +169,9 @@ public void saveState(String path){
     }
 }
 /**
- * slidfharuief
- * @param dbl slidfharuief
- * @return slidfharuief
+ * cj;odsvj;oidv DV 
+ * @param dbl ;vdhwov
+ * @return ;dvhpduvhwBHV[]
  */
 public Oxygen[] splitOxygen(Oxygen dbl){if ((this.gameDiscard.size() == 0 && this.gameDeck.size() == 1)
 || (this.gameDiscard.size() == 1 && this.gameDeck.size() == 0)) {
@@ -190,6 +190,7 @@ throw new IllegalStateException();
             else{o[0] = (Oxygen)c.remove(c.size()-1);}}}    
     for (int i = c.size()-1; i >= 0; i--){gameDiscard.add(c.remove(i));}
         if (count == 2){gameDeck.remove(dbl); gameDiscard.add(dbl); return o;}
+    if(count < 2){throw new IllegalStateException("JAIVER");}
     return null;}
 /**
  * slidfharuief
