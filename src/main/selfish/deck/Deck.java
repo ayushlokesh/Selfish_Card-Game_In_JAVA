@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.*;
 import java.util.Random;
 
+import selfish.GameException;
+
 
 public abstract class Deck implements java.io.Serializable{
     
@@ -27,7 +29,7 @@ public abstract class Deck implements java.io.Serializable{
       }
       return cards;}
 
-    protected static List<Card> loadCards(String path){
+    protected static List<Card> loadCards(String path) throws GameException{
         
         List<Card> c = new ArrayList<Card>();
         if (path.equals("")){return c;}
@@ -47,6 +49,7 @@ public abstract class Deck implements java.io.Serializable{
             }
             myReader.close();
           } catch (FileNotFoundException e) {
+            throw new GameException("File not Found", new FileNotFoundException());
             System.out.println("File not found.");
            
           } 

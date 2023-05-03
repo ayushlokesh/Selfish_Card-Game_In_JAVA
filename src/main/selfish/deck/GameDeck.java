@@ -1,7 +1,10 @@
 package selfish.deck;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+
+import selfish.GameException;
 
 /**
  * Represents the Game Deck that actions cards.
@@ -33,8 +36,10 @@ public class GameDeck extends Deck{
         
     }
 
-    public GameDeck(String s){
-        add(loadCards(s));
+    public GameDeck(String s) throws GameException{
+        try{
+        add(loadCards(s));}
+        catch(Exception e){throw new GameException("File not Found", new FileNotFoundException());}
         for (int i = 0; i<10; i++){this.add(new Oxygen(2));}
         for (int i = 0; i<38; i++){this.add(new Oxygen(1));}
     }
