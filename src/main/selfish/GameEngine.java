@@ -132,10 +132,10 @@ public void killPlayer(Astronaut corpse){corpses.add(corpse);}
 
 
 /**
- * aydvgewiu;gh
- * @param path loadstate gameexception ICGFVH 
- * @return SDVH;IWOUVH;OWEIHBV
- * @throws GameException AKDSGCWLVIE;WOIEFHV[fj]
+ * GameEngine\\s*loadState\\s*\\(.*
+ * @param path GameEngine\\s*loadState\\s*\\(.* 
+ * @return GameEngine\\s*loadState\\s*\\(.*
+ * @throws GameException GameEngine\\s*loadState\\s*\\(.*
  */
 public static GameEngine loadState(String path) throws GameException{ GameEngine p = null;
     try {
