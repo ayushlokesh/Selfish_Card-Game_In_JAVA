@@ -1,6 +1,7 @@
 package selfish.deck;
+
 /**
- * Represents Astronaut in the game.
+ * Represents cards in the game.
  * 
  * @author Ayush
  * @version 1.0
@@ -10,6 +11,12 @@ public class Card implements java.io.Serializable, Comparable<Card> {
     private String name;
     private String description;
     private static final long serialVersionUID = 0;
+    
+    /*
+    * empty card constructor
+    */
+    public Card(){}
+
 /**
  * Returns the name of card
  * @param name auighilreh;agie
@@ -19,10 +26,7 @@ public class Card implements java.io.Serializable, Comparable<Card> {
         this.name = name;
         this.description = desc;
     }
-/*
- * empty card constructor
- */
-    public Card(){}
+
 
 /**
  * kjefbawkfb
